@@ -7,11 +7,11 @@
     "private": true,
     "scripts": {
         "ng": "ng",
-        "start": "ng serve",
-        "build": "ng build",
-        "watch": "ng build --watch --configuration development",
-        "test": "ng test",
-        "lint": "ng lint"
+        "start": "clear && ng serve --port 4300",
+        "build": "clear && ng build",
+        "watch": "clear && ng build --watch --configuration development",
+        "test": "clear && ng test",
+        "lint": "clear && ng lint"
     },
     "dependencies": {
         "@angular/animations": "13.1.3",

@@ -3,8 +3,8 @@ import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { MatButton } from '@angular/material/button';
 import { Subject, takeUntil } from 'rxjs';
-import { Message } from 'app/layout/common/messages/messages.types';
-import { MessagesService } from 'app/layout/common/messages/messages.service';
+import { Message } from 'app/interface/messages/messages.types';
+import { MessagesService } from 'app/services/messages/messages.service';
 
 @Component({
     selector       : 'messages',

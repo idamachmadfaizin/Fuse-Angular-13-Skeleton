@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { fuseAnimations } from '@fuse/animations';
 import { FuseAlertType } from '@fuse/components/alert';
-import { AuthService } from 'app/core/auth/auth.service';
+import { AuthService } from 'app/services/auth/auth.service';
 
 @Component({
     selector: 'auth-sign-in',
@@ -56,6 +56,7 @@ export class AuthSignInComponent implements OnInit {
      * Sign in
      */
     signIn(): void {
+        console.log('Sign In NgForm :>> ', this.signInNgForm);
         // Return if the form is invalid
         if (this.signInForm.invalid) {
             return;

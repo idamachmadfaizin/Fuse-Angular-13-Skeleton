@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { forkJoin, Observable } from 'rxjs';
-import { MessagesService } from 'app/layout/common/messages/messages.service';
-import { NavigationService } from 'app/core/navigation/navigation.service';
-import { NotificationsService } from 'app/layout/common/notifications/notifications.service';
-import { UserService } from 'app/core/user/user.service';
+import { MessagesService } from 'app/services/messages/messages.service';
+import { NavigationService } from 'app/services/navigation/navigation.service';
+import { NotificationsService } from 'app/services/notifications/notifications.service';
+import { UserService } from 'app/services/user/user.service';
 
 @Injectable({
     providedIn: 'root'
