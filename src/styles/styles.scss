@@ -3,55 +3,119 @@
 /*  @ Styles from this file will override 'vendors.scss' and Fuse's base styles.
 /* ----------------------------------------------------------------------------------------------------- */
 .chip-success {
-    display: inline-block;
-    height: 32px;
-    font-size: 13px;
-    font-weight: 500;
-    color: rgba(0, 0, 0, 0.6);
-    line-height: 32px;
-    padding: 0 12px;
-    border-radius: 16px;
-    background-color: #e4e4e4;
-    margin-bottom: 5px;
-    margin-right: 5px;
-    background-color: #e8f5e9;
-    color: #4caf50;
-    /* On screens that are 1492 or less, set the background color to blue */
-    @media screen and (max-width: 1492) {
-        body {
-            height: 60px;
-        }
-    }
+	display: inline-block;
+	height: 32px;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 32px;
+	padding: 0 12px;
+	border-radius: 16px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	background-color: #86efac;
+	color: #4d7c0f;
+	border: 1px solid #4d7c0f;
+	cursor: pointer;
+	/* On screens that are 1492 or less, set the background color to blue */
+	@media screen and (max-width: 1492) {
+		body {
+			height: 60px;
+		}
+	}
 }
 
 .chip-failure {
-    display: inline-block;
-    height: 32px;
-    font-size: 13px;
-    font-weight: 500;
-    color: rgba(0, 0, 0, 0.6);
-    line-height: 32px;
-    padding: 0 12px;
-    border-radius: 16px;
-    background-color: #e4e4e4;
-    margin-bottom: 5px;
-    margin-right: 5px;
-    background-color: #ffebee;
-    color: red;
+	display: inline-block;
+	height: 32px;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 32px;
+	padding: 0 12px;
+	border-radius: 16px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	background-color: #fca5a5;
+	color: #b91c1c;
+	border: 1px solid #b91c1c;
+	cursor: pointer;
 }
 
 .chip-warning {
-    display: inline-block;
-    height: 32px;
-    font-size: 13px;
-    font-weight: 500;
-    color: rgba(0, 0, 0, 0.6);
-    line-height: 32px;
-    padding: 0 12px;
-    border-radius: 16px;
-    background-color: #e4e4e4;
-    margin-bottom: 5px;
-    margin-right: 5px;
-    background-color: #ffffcc;
-    color: #999900;
+	display: inline-block;
+	height: 32px;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 32px;
+	padding: 0 12px;
+	border-radius: 16px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	background-color: #fde047;
+	color: #a16207;
+	border: 1px solid #a16207;
+	cursor: pointer;
+}
+
+.chip-info {
+	display: inline-block;
+	height: 32px;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 32px;
+	padding: 0 12px;
+	border-radius: 16px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	background-color: #93c5fd;
+	color: #1d4ed8;
+	border: 1px solid #1d4ed8;
+	cursor: pointer;
+}
+
+.chip-purple {
+	display: inline-block;
+	height: 32px;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 32px;
+	padding: 0 12px;
+	border-radius: 16px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	background-color: #d8b4fe;
+	color: #7e22ce;
+	border: 1px solid #7e22ce;
+	cursor: pointer;
+}
+
+.chip-rose {
+	display: inline-block;
+	height: 32px;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 32px;
+	padding: 0 12px;
+	border-radius: 16px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	background-color: #fda4af;
+	color: #be123c;
+	border: 1px solid #be123c;
+	cursor: pointer;
+}
+
+.chip-fuchsia {
+	display: inline-block;
+	height: 32px;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 32px;
+	padding: 0 12px;
+	border-radius: 16px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	background-color: #f0abfc;
+	color: #a21caf;
+	border: 1px solid #a21caf;
+	cursor: pointer;
 }
