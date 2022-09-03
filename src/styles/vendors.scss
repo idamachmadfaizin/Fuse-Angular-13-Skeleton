@@ -3,12 +3,12 @@
 /* ----------------------------------------------------------------------------------------------------- */
 
 /* Perfect scrollbar */
-@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+@import "~perfect-scrollbar/css/perfect-scrollbar.css";
 
 /* Quill */
-@import '~quill/dist/quill.snow.css';
+@import "~quill/dist/quill.snow.css";
 
 /* Ng Select */
-@import "~@ng-select/ng-select/themes/material.theme.css";
+// @import "~@ng-select/ng-select/themes/material.theme.css";
 
-@import './ng-select-theme';
+@import "./ng-select-theme";
