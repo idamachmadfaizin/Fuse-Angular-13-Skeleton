@@ -1,10 +1,10 @@
-import { Route } from "@angular/router";
-import { DashboardComponent } from "../dashboard/dashboard.component";
-import { DashboardResolver } from "../../resolver/dashboard/dashboard.resolver";
+import { Route } from '@angular/router';
+import { DashboardComponent } from '../dashboard/dashboard.component';
+import { DashboardResolver } from '../../resolver/dashboard/dashboard.resolver';
 
 export const DashboardRoutes: Route[] = [
 	{
-		path: "",
+		path: '',
 		component: DashboardComponent,
 		resolve: {
 			data: DashboardResolver,

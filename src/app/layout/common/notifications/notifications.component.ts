@@ -8,24 +8,24 @@ import {
 	ViewChild,
 	ViewContainerRef,
 	ViewEncapsulation,
-} from "@angular/core";
-import { Overlay, OverlayRef } from "@angular/cdk/overlay";
-import { TemplatePortal } from "@angular/cdk/portal";
-import { MatButton } from "@angular/material/button";
-import { Subject, takeUntil } from "rxjs";
-import { Notification } from "app/interface/notifications/notifications.types";
-import { NotificationsService } from "app/services/notifications/notifications.service";
+} from '@angular/core';
+import { Overlay, OverlayRef } from '@angular/cdk/overlay';
+import { TemplatePortal } from '@angular/cdk/portal';
+import { MatButton } from '@angular/material/button';
+import { Subject, takeUntil } from 'rxjs';
+import { Notification } from 'app/interface/notifications/notifications.types';
+import { NotificationsService } from 'app/services/notifications/notifications.service';
 
 @Component({
-	selector: "notifications",
-	templateUrl: "./notifications.component.html",
+	selector: 'notifications',
+	templateUrl: './notifications.component.html',
 	encapsulation: ViewEncapsulation.None,
 	changeDetection: ChangeDetectionStrategy.OnPush,
-	exportAs: "notifications",
+	exportAs: 'notifications',
 })
 export class NotificationsComponent implements OnInit, OnDestroy {
-	@ViewChild("notificationsOrigin") private _notificationsOrigin: MatButton;
-	@ViewChild("notificationsPanel")
+	@ViewChild('notificationsOrigin') private _notificationsOrigin: MatButton;
+	@ViewChild('notificationsPanel')
 	private _notificationsPanel: TemplateRef<any>;
 
 	notifications: Notification[];
@@ -161,7 +161,7 @@ export class NotificationsComponent implements OnInit, OnDestroy {
 		// Create the overlay
 		this._overlayRef = this._overlay.create({
 			hasBackdrop: true,
-			backdropClass: "fuse-backdrop-on-mobile",
+			backdropClass: 'fuse-backdrop-on-mobile',
 			scrollStrategy: this._overlay.scrollStrategies.block(),
 			positionStrategy: this._overlay
 				.position()
@@ -172,28 +172,28 @@ export class NotificationsComponent implements OnInit, OnDestroy {
 				.withPush(true)
 				.withPositions([
 					{
-						originX: "start",
-						originY: "bottom",
-						overlayX: "start",
-						overlayY: "top",
+						originX: 'start',
+						originY: 'bottom',
+						overlayX: 'start',
+						overlayY: 'top',
 					},
 					{
-						originX: "start",
-						originY: "top",
-						overlayX: "start",
-						overlayY: "bottom",
+						originX: 'start',
+						originY: 'top',
+						overlayX: 'start',
+						overlayY: 'bottom',
 					},
 					{
-						originX: "end",
-						originY: "bottom",
-						overlayX: "end",
-						overlayY: "top",
+						originX: 'end',
+						originY: 'bottom',
+						overlayX: 'end',
+						overlayY: 'top',
 					},
 					{
-						originX: "end",
-						originY: "top",
-						overlayX: "end",
-						overlayY: "bottom",
+						originX: 'end',
+						originY: 'top',
+						overlayX: 'end',
+						overlayY: 'bottom',
 					},
 				]),
 		});

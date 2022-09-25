@@ -1,14 +1,14 @@
-import { Injectable } from "@angular/core";
-import { assign, cloneDeep } from "lodash-es";
-import { FuseMockApiUtils } from "@fuse/lib/mock-api/mock-api.utils";
-import { FuseMockApiService } from "@fuse/lib/mock-api/mock-api.service";
+import { Injectable } from '@angular/core';
+import { assign, cloneDeep } from 'lodash-es';
+import { FuseMockApiUtils } from '@fuse/lib/mock-api/mock-api.utils';
+import { FuseMockApiService } from '@fuse/lib/mock-api/mock-api.service';
 import {
 	tags as tagsData,
 	tasks as tasksData,
-} from "app/mock-api/apps/tasks/data";
+} from 'app/mock-api/apps/tasks/data';
 
 @Injectable({
-	providedIn: "root",
+	providedIn: 'root',
 })
 export class TasksMockApi {
 	private _tags: any[] = tagsData;
@@ -34,14 +34,14 @@ export class TasksMockApi {
 		// @ Tags - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/tasks/tags")
+			.onGet('api/apps/tasks/tags')
 			.reply(() => [200, cloneDeep(this._tags)]);
 
 		// -----------------------------------------------------------------------------------------------------
 		// @ Tags - POST
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPost("api/apps/tasks/tag")
+			.onPost('api/apps/tasks/tag')
 			.reply(({ request }) => {
 				// Get the tag
 				const newTag = cloneDeep(request.body.tag);
@@ -59,7 +59,7 @@ export class TasksMockApi {
 		// @ Tags - PATCH
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPatch("api/apps/tasks/tag")
+			.onPatch('api/apps/tasks/tag')
 			.reply(({ request }) => {
 				// Get the id and tag
 				const id = request.body.id;
@@ -86,10 +86,10 @@ export class TasksMockApi {
 		// @ Tag - DELETE
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onDelete("api/apps/tasks/tag")
+			.onDelete('api/apps/tasks/tag')
 			.reply(({ request }) => {
 				// Get the id
-				const id = request.params.get("id");
+				const id = request.params.get('id');
 
 				// Find the tag and delete it
 				const index = this._tags.findIndex(item => item.id === id);
@@ -111,7 +111,7 @@ export class TasksMockApi {
 		// -----------------------------------------------------------------------------------------------------
 		// @ Tasks - GET
 		// -----------------------------------------------------------------------------------------------------
-		this._fuseMockApiService.onGet("api/apps/tasks/all").reply(() => {
+		this._fuseMockApiService.onGet('api/apps/tasks/all').reply(() => {
 			// Clone the tasks
 			const tasks = cloneDeep(this._tasks);
 
@@ -125,10 +125,10 @@ export class TasksMockApi {
 		// @ Tasks Search - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/tasks/search")
+			.onGet('api/apps/tasks/search')
 			.reply(({ request }) => {
 				// Get the search query
-				const query = request.params.get("query");
+				const query = request.params.get('query');
 
 				// Prepare the search results
 				let results;
@@ -152,12 +152,12 @@ export class TasksMockApi {
 					// Mark the found chars
 					tasks.forEach(task => {
 						const re = new RegExp(
-							"(" +
-								query.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&") +
-								")",
-							"ig"
+							'(' +
+								query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&') +
+								')',
+							'ig'
 						);
-						task.title = task.title.replace(re, "<mark>$1</mark>");
+						task.title = task.title.replace(re, '<mark>$1</mark>');
 					});
 
 					// Set them as the search result
@@ -175,7 +175,7 @@ export class TasksMockApi {
 		// @ Tasks Orders - PATCH
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPatch("api/apps/tasks/order")
+			.onPatch('api/apps/tasks/order')
 			.reply(({ request }) => {
 				// Get the tasks
 				const tasks = request.body.tasks;
@@ -197,10 +197,10 @@ export class TasksMockApi {
 		// @ Task - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/tasks/task")
+			.onGet('api/apps/tasks/task')
 			.reply(({ request }) => {
 				// Get the id from the params
-				const id = request.params.get("id");
+				const id = request.params.get('id');
 
 				// Clone the tasks
 				const tasks = cloneDeep(this._tasks);
@@ -215,13 +215,13 @@ export class TasksMockApi {
 		// @ Task - POST
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPost("api/apps/tasks/task")
+			.onPost('api/apps/tasks/task')
 			.reply(({ request }) => {
 				// Generate a new task
 				const newTask = {
 					id: FuseMockApiUtils.guid(),
 					type: request.body.type,
-					title: "",
+					title: '',
 					notes: null,
 					completed: false,
 					dueDate: null,
@@ -245,7 +245,7 @@ export class TasksMockApi {
 		// @ Task - PATCH
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPatch("api/apps/tasks/task")
+			.onPatch('api/apps/tasks/task')
 			.reply(({ request }) => {
 				// Get the id and task
 				const id = request.body.id;
@@ -272,10 +272,10 @@ export class TasksMockApi {
 		// @ Task - DELETE
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onDelete("api/apps/tasks/task")
+			.onDelete('api/apps/tasks/task')
 			.reply(({ request }) => {
 				// Get the id
-				const id = request.params.get("id");
+				const id = request.params.get('id');
 
 				// Find the task and delete it
 				const index = this._tasks.findIndex(item => item.id === id);

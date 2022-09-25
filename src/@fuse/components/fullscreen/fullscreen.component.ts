@@ -6,19 +6,19 @@ import {
 	OnInit,
 	TemplateRef,
 	ViewEncapsulation,
-} from "@angular/core";
-import { DOCUMENT } from "@angular/common";
+} from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import {
 	FSDocument,
 	FSDocumentElement,
-} from "@fuse/components/fullscreen/fullscreen.types";
+} from '@fuse/components/fullscreen/fullscreen.types';
 
 @Component({
-	selector: "fuse-fullscreen",
-	templateUrl: "./fullscreen.component.html",
+	selector: 'fuse-fullscreen',
+	templateUrl: './fullscreen.component.html',
 	encapsulation: ViewEncapsulation.None,
 	changeDetection: ChangeDetectionStrategy.OnPush,
-	exportAs: "fuseFullscreen",
+	exportAs: 'fuseFullscreen',
 })
 export class FuseFullscreenComponent implements OnInit {
 	@Input() iconTpl: TemplateRef<any>;
@@ -74,23 +74,23 @@ export class FuseFullscreenComponent implements OnInit {
 	 * @private
 	 */
 	private _getBrowserFullscreenElement(): Element {
-		if (typeof this._fsDoc.fullscreenElement !== "undefined") {
+		if (typeof this._fsDoc.fullscreenElement !== 'undefined') {
 			return this._fsDoc.fullscreenElement;
 		}
 
-		if (typeof this._fsDoc.mozFullScreenElement !== "undefined") {
+		if (typeof this._fsDoc.mozFullScreenElement !== 'undefined') {
 			return this._fsDoc.mozFullScreenElement;
 		}
 
-		if (typeof this._fsDoc.msFullscreenElement !== "undefined") {
+		if (typeof this._fsDoc.msFullscreenElement !== 'undefined') {
 			return this._fsDoc.msFullscreenElement;
 		}
 
-		if (typeof this._fsDoc.webkitFullscreenElement !== "undefined") {
+		if (typeof this._fsDoc.webkitFullscreenElement !== 'undefined') {
 			return this._fsDoc.webkitFullscreenElement;
 		}
 
-		throw new Error("Fullscreen mode is not supported by this browser");
+		throw new Error('Fullscreen mode is not supported by this browser');
 	}
 
 	/**

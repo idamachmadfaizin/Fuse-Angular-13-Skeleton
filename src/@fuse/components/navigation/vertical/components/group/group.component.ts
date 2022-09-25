@@ -5,16 +5,16 @@ import {
 	Input,
 	OnDestroy,
 	OnInit,
-} from "@angular/core";
-import { BooleanInput } from "@angular/cdk/coercion";
-import { Subject, takeUntil } from "rxjs";
-import { FuseVerticalNavigationComponent } from "@fuse/components/navigation/vertical/vertical.component";
-import { FuseNavigationService } from "@fuse/components/navigation/navigation.service";
-import { FuseNavigationItem } from "@fuse/components/navigation/navigation.types";
+} from '@angular/core';
+import { BooleanInput } from '@angular/cdk/coercion';
+import { Subject, takeUntil } from 'rxjs';
+import { FuseVerticalNavigationComponent } from '@fuse/components/navigation/vertical/vertical.component';
+import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
+import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
 
 @Component({
-	selector: "fuse-vertical-navigation-group-item",
-	templateUrl: "./group.component.html",
+	selector: 'fuse-vertical-navigation-group-item',
+	templateUrl: './group.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FuseVerticalNavigationGroupItemComponent

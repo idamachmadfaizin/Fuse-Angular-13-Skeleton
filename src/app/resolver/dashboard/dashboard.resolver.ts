@@ -1,14 +1,14 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import {
 	ActivatedRouteSnapshot,
 	Resolve,
 	RouterStateSnapshot,
-} from "@angular/router";
-import { Observable } from "rxjs";
-import { DashboardService } from "../../services/dashboard/dashboard.service";
+} from '@angular/router';
+import { Observable } from 'rxjs';
+import { DashboardService } from '../../services/dashboard/dashboard.service';
 
 @Injectable({
-	providedIn: "root",
+	providedIn: 'root',
 })
 export class DashboardResolver implements Resolve<any> {
 	// -----------------------------------------------------------------------------------------------------

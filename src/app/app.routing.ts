@@ -1,65 +1,65 @@
-import { Route } from "@angular/router";
-import { AuthGuard } from "app/core/auth/guards/auth.guard";
-import { NoAuthGuard } from "app/core/auth/guards/noAuth.guard";
-import { LayoutComponent } from "app/layout/layout.component";
-import { InitialDataResolver } from "app/app.resolvers";
+import { Route } from '@angular/router';
+import { AuthGuard } from 'app/core/auth/guards/auth.guard';
+import { NoAuthGuard } from 'app/core/auth/guards/noAuth.guard';
+import { LayoutComponent } from 'app/layout/layout.component';
+import { InitialDataResolver } from 'app/app.resolvers';
 
 // @formatter:off
 /* eslint-disable max-len */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 export const appRoutes: Route[] = [
 	// Redirect Empty Path To '/dashboards'
-	{ path: "", pathMatch: "full", redirectTo: "dashboards" },
+	{ path: '', pathMatch: 'full', redirectTo: 'dashboards' },
 
 	// Redirect Signed In User To The '/dashboards'
 	//
 	// After the user signs in, the sign in page will redirect the user to the 'signed-in-redirect' path.
 	// Below is another redirection for that path to redirect the user to the desired location.
 	// This is a small convenience to keep all main routes together here on this file.
-	{ path: "signed-in-redirect", pathMatch: "full", redirectTo: "dashboards" },
+	{ path: 'signed-in-redirect', pathMatch: 'full', redirectTo: 'dashboards' },
 
 	// Auth Routes For Guests
 	{
-		path: "",
+		path: '',
 		canActivate: [NoAuthGuard],
 		canActivateChild: [NoAuthGuard],
 		component: LayoutComponent,
 		data: {
-			layout: "empty",
+			layout: 'empty',
 		},
 		children: [
 			{
-				path: "confirmation-required",
+				path: 'confirmation-required',
 				loadChildren: () =>
 					import(
-						"app/modules/auth/confirmation-required/confirmation-required.module"
+						'app/modules/auth/confirmation-required/confirmation-required.module'
 					).then(m => m.AuthConfirmationRequiredModule),
 			},
 			{
-				path: "forgot-password",
+				path: 'forgot-password',
 				loadChildren: () =>
 					import(
-						"app/modules/auth/forgot-password/forgot-password.module"
+						'app/modules/auth/forgot-password/forgot-password.module'
 					).then(m => m.AuthForgotPasswordModule),
 			},
 			{
-				path: "reset-password",
+				path: 'reset-password',
 				loadChildren: () =>
 					import(
-						"app/modules/auth/reset-password/reset-password.module"
+						'app/modules/auth/reset-password/reset-password.module'
 					).then(m => m.AuthResetPasswordModule),
 			},
 			{
-				path: "sign-in",
+				path: 'sign-in',
 				loadChildren: () =>
-					import("app/modules/auth/sign-in/sign-in.module").then(
+					import('app/modules/auth/sign-in/sign-in.module').then(
 						m => m.AuthSignInModule
 					),
 			},
 			{
-				path: "sign-up",
+				path: 'sign-up',
 				loadChildren: () =>
-					import("app/modules/auth/sign-up/sign-up.module").then(
+					import('app/modules/auth/sign-up/sign-up.module').then(
 						m => m.AuthSignUpModule
 					),
 			},
@@ -68,26 +68,26 @@ export const appRoutes: Route[] = [
 
 	// Auth Routes For Authenticated Users
 	{
-		path: "",
+		path: '',
 		canActivate: [AuthGuard],
 		canActivateChild: [AuthGuard],
 		component: LayoutComponent,
 		data: {
-			layout: "empty",
+			layout: 'empty',
 		},
 		children: [
 			{
-				path: "sign-out",
+				path: 'sign-out',
 				loadChildren: () =>
-					import("app/modules/auth/sign-out/sign-out.module").then(
+					import('app/modules/auth/sign-out/sign-out.module').then(
 						m => m.AuthSignOutModule
 					),
 			},
 			{
-				path: "unlock-session",
+				path: 'unlock-session',
 				loadChildren: () =>
 					import(
-						"app/modules/auth/unlock-session/unlock-session.module"
+						'app/modules/auth/unlock-session/unlock-session.module'
 					).then(m => m.AuthUnlockSessionModule),
 			},
 		],
@@ -95,16 +95,16 @@ export const appRoutes: Route[] = [
 
 	// Landing Routes
 	{
-		path: "",
+		path: '',
 		component: LayoutComponent,
 		data: {
-			layout: "empty",
+			layout: 'empty',
 		},
 		children: [
 			{
-				path: "home",
+				path: 'home',
 				loadChildren: () =>
-					import("app/modules/landing/home/home.module").then(
+					import('app/modules/landing/home/home.module').then(
 						m => m.LandingHomeModule
 					),
 			},
@@ -113,7 +113,7 @@ export const appRoutes: Route[] = [
 
 	// Admin Routes
 	{
-		path: "",
+		path: '',
 		canActivate: [AuthGuard],
 		canActivateChild: [AuthGuard],
 		component: LayoutComponent,
@@ -122,18 +122,18 @@ export const appRoutes: Route[] = [
 		},
 		children: [
 			{
-				path: "example",
+				path: 'example',
 				loadChildren: () =>
-					import("app/modules/admin/example/example.module").then(
+					import('app/modules/admin/example/example.module').then(
 						m => m.ExampleModule
 					),
 			},
 
 			// Dashboards
 			{
-				path: "dashboards",
+				path: 'dashboards',
 				loadChildren: () =>
-					import("./modules/dashboard/dashboard.module").then(
+					import('./modules/dashboard/dashboard.module').then(
 						m => m.DashboardModule
 					),
 			},
@@ -142,10 +142,10 @@ export const appRoutes: Route[] = [
 
 	// Error Routes
 	{
-		path: "404-not-found",
-		pathMatch: "full",
+		path: '404-not-found',
+		pathMatch: 'full',
 		loadChildren: () =>
-			import("./modules/error/error.module").then(m => m.ErrorModule),
+			import('./modules/error/error.module').then(m => m.ErrorModule),
 	},
-	{ path: "**", redirectTo: "404-not-found" },
+	{ path: '**', redirectTo: '404-not-found' },
 ];

@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
-import { cloneDeep } from "lodash-es";
-import { FuseMockApiService } from "@fuse/lib/mock-api/mock-api.service";
-import { items as itemsData } from "app/mock-api/apps/file-manager/data";
+import { Injectable } from '@angular/core';
+import { cloneDeep } from 'lodash-es';
+import { FuseMockApiService } from '@fuse/lib/mock-api/mock-api.service';
+import { items as itemsData } from 'app/mock-api/apps/file-manager/data';
 
 @Injectable({
-	providedIn: "root",
+	providedIn: 'root',
 })
 export class FileManagerMockApi {
 	private _items: any[] = itemsData;
@@ -29,13 +29,13 @@ export class FileManagerMockApi {
 		// @ Items - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/file-manager")
+			.onGet('api/apps/file-manager')
 			.reply(({ request }) => {
 				// Clone the items
 				let items = cloneDeep(this._items);
 
 				// See if a folder id exist
-				const folderId = request.params.get("folderId") ?? null;
+				const folderId = request.params.get('folderId') ?? null;
 
 				// Filter the items by folder id. If folder id is null,
 				// that means we want to root items which have folder id
@@ -43,8 +43,8 @@ export class FileManagerMockApi {
 				items = items.filter(item => item.folderId === folderId);
 
 				// Separate the items by folders and files
-				const folders = items.filter(item => item.type === "folder");
-				const files = items.filter(item => item.type !== "folder");
+				const folders = items.filter(item => item.type === 'folder');
+				const files = items.filter(item => item.type !== 'folder');
 
 				// Sort the folders and files alphabetically by filename
 				folders.sort((a, b) => a.name.localeCompare(b.name));

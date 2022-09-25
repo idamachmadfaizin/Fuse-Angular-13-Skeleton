@@ -1,5 +1,5 @@
-import { HttpRequest } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { HttpRequest } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 export type FuseMockApiReplyCallback =
 	| ((data: {
@@ -9,11 +9,11 @@ export type FuseMockApiReplyCallback =
 	| undefined;
 
 export type FuseMockApiMethods =
-	| "get"
-	| "post"
-	| "patch"
-	| "delete"
-	| "put"
-	| "head"
-	| "jsonp"
-	| "options";
+	| 'get'
+	| 'post'
+	| 'patch'
+	| 'delete'
+	| 'put'
+	| 'head'
+	| 'jsonp'
+	| 'options';

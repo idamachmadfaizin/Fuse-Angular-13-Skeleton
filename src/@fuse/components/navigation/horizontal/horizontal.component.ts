@@ -8,21 +8,21 @@ import {
 	OnInit,
 	SimpleChanges,
 	ViewEncapsulation,
-} from "@angular/core";
-import { ReplaySubject, Subject } from "rxjs";
-import { fuseAnimations } from "@fuse/animations";
-import { FuseNavigationItem } from "@fuse/components/navigation/navigation.types";
-import { FuseNavigationService } from "@fuse/components/navigation/navigation.service";
-import { FuseUtilsService } from "@fuse/services/utils/utils.service";
+} from '@angular/core';
+import { ReplaySubject, Subject } from 'rxjs';
+import { fuseAnimations } from '@fuse/animations';
+import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
+import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
+import { FuseUtilsService } from '@fuse/services/utils/utils.service';
 
 @Component({
-	selector: "fuse-horizontal-navigation",
-	templateUrl: "./horizontal.component.html",
-	styleUrls: ["./horizontal.component.scss"],
+	selector: 'fuse-horizontal-navigation',
+	templateUrl: './horizontal.component.html',
+	styleUrls: ['./horizontal.component.scss'],
 	animations: fuseAnimations,
 	encapsulation: ViewEncapsulation.None,
 	changeDetection: ChangeDetectionStrategy.OnPush,
-	exportAs: "fuseHorizontalNavigation",
+	exportAs: 'fuseHorizontalNavigation',
 })
 export class FuseHorizontalNavigationComponent
 	implements OnChanges, OnInit, OnDestroy
@@ -53,7 +53,7 @@ export class FuseHorizontalNavigationComponent
 	 */
 	ngOnChanges(changes: SimpleChanges): void {
 		// Navigation
-		if ("navigation" in changes) {
+		if ('navigation' in changes) {
 			// Mark for check
 			this._changeDetectorRef.markForCheck();
 		}
@@ -64,7 +64,7 @@ export class FuseHorizontalNavigationComponent
 	 */
 	ngOnInit(): void {
 		// Make sure the name input is not an empty string
-		if (this.name === "") {
+		if (this.name === '') {
 			this.name = this._fuseUtilsService.randomId();
 		}
 

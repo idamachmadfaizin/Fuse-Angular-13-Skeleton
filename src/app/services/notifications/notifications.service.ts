@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { map, Observable, ReplaySubject, switchMap, take, tap } from "rxjs";
-import { Notification } from "app/interface/notifications/notifications.types";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { map, Observable, ReplaySubject, switchMap, take, tap } from 'rxjs';
+import { Notification } from 'app/interface/notifications/notifications.types';
 
 @Injectable({
-	providedIn: "root",
+	providedIn: 'root',
 })
 export class NotificationsService {
 	private _notifications: ReplaySubject<Notification[]> = new ReplaySubject<
@@ -36,7 +36,7 @@ export class NotificationsService {
 	 */
 	getAll(): Observable<Notification[]> {
 		return this._httpClient
-			.get<Notification[]>("api/common/notifications")
+			.get<Notification[]>('api/common/notifications')
 			.pipe(
 				tap(notifications => {
 					this._notifications.next(notifications);
@@ -54,7 +54,7 @@ export class NotificationsService {
 			take(1),
 			switchMap(notifications =>
 				this._httpClient
-					.post<Notification>("api/common/notifications", { notification })
+					.post<Notification>('api/common/notifications', { notification })
 					.pipe(
 						map(newNotification => {
 							// Update the notifications with the new notification
@@ -82,7 +82,7 @@ export class NotificationsService {
 			take(1),
 			switchMap(notifications =>
 				this._httpClient
-					.patch<Notification>("api/common/notifications", {
+					.patch<Notification>('api/common/notifications', {
 						id,
 						notification,
 					})
@@ -117,7 +117,7 @@ export class NotificationsService {
 			take(1),
 			switchMap(notifications =>
 				this._httpClient
-					.delete<boolean>("api/common/notifications", { params: { id } })
+					.delete<boolean>('api/common/notifications', { params: { id } })
 					.pipe(
 						map((isDeleted: boolean) => {
 							// Find the index of the deleted notification
@@ -147,7 +147,7 @@ export class NotificationsService {
 			take(1),
 			switchMap(notifications =>
 				this._httpClient
-					.get<boolean>("api/common/notifications/mark-all-as-read")
+					.get<boolean>('api/common/notifications/mark-all-as-read')
 					.pipe(
 						map((isUpdated: boolean) => {
 							// Go through all notifications and set them as read

@@ -4,16 +4,16 @@ import {
 	OnDestroy,
 	OnInit,
 	ViewEncapsulation,
-} from "@angular/core";
-import { Router } from "@angular/router";
-import { Subject } from "rxjs";
-import { takeUntil } from "rxjs/operators";
-import { ApexOptions } from "ng-apexcharts";
-import { DashboardService } from "../../services/dashboard/dashboard.service";
+} from '@angular/core';
+import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { ApexOptions } from 'ng-apexcharts';
+import { DashboardService } from '../../services/dashboard/dashboard.service';
 
 @Component({
-	selector: "app-dashboard",
-	templateUrl: "./dashboard.component.html",
+	selector: 'app-dashboard',
+	templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent implements OnInit, OnDestroy {
 	chartVisitors: ApexOptions;
@@ -66,7 +66,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 			});
 
 		// Attach SVG fill fixer to all ApexCharts
-		window["Apex"] = {
+		window['Apex'] = {
 			chart: {
 				events: {
 					mounted: (chart: any, options?: any): void => {
@@ -124,13 +124,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
 		// 1. Find all elements with 'fill' attribute within the element
 		// 2. Filter out the ones that doesn't have cross reference so we only left with the ones that use the 'url(#id)' syntax
 		// 3. Insert the 'currentURL' at the front of the 'fill' attribute value
-		Array.from(element.querySelectorAll("*[fill]"))
-			.filter(el => el.getAttribute("fill").indexOf("url(") !== -1)
+		Array.from(element.querySelectorAll('*[fill]'))
+			.filter(el => el.getAttribute('fill').indexOf('url(') !== -1)
 			.forEach(el => {
-				const attrVal = el.getAttribute("fill");
+				const attrVal = el.getAttribute('fill');
 				el.setAttribute(
-					"fill",
-					`url(${currentURL}${attrVal.slice(attrVal.indexOf("#"))}`
+					'fill',
+					`url(${currentURL}${attrVal.slice(attrVal.indexOf('#'))}`
 				);
 			});
 	}
@@ -150,11 +150,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
 						enabled: false,
 					},
 				},
-				fontFamily: "inherit",
-				foreColor: "inherit",
-				width: "100%",
-				height: "100%",
-				type: "area",
+				fontFamily: 'inherit',
+				foreColor: 'inherit',
+				width: '100%',
+				height: '100%',
+				type: 'area',
 				toolbar: {
 					show: false,
 				},
@@ -162,23 +162,23 @@ export class DashboardComponent implements OnInit, OnDestroy {
 					enabled: false,
 				},
 			},
-			colors: ["#818CF8"],
+			colors: ['#818CF8'],
 			dataLabels: {
 				enabled: false,
 			},
 			fill: {
-				colors: ["#312E81"],
+				colors: ['#312E81'],
 			},
 			grid: {
 				show: true,
-				borderColor: "#334155",
+				borderColor: '#334155',
 				padding: {
 					top: 10,
 					bottom: -40,
 					left: 0,
 					right: 0,
 				},
-				position: "back",
+				position: 'back',
 				xaxis: {
 					lines: {
 						show: true,
@@ -191,9 +191,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
 			},
 			tooltip: {
 				followCursor: true,
-				theme: "dark",
+				theme: 'dark',
 				x: {
-					format: "MMM dd, yyyy",
+					format: 'MMM dd, yyyy',
 				},
 				y: {
 					formatter: (value: number): string => `${value}`,
@@ -208,7 +208,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 				},
 				crosshairs: {
 					stroke: {
-						color: "#475569",
+						color: '#475569',
 						dashArray: 0,
 						width: 2,
 					},
@@ -216,14 +216,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
 				labels: {
 					offsetY: -20,
 					style: {
-						colors: "#CBD5E1",
+						colors: '#CBD5E1',
 					},
 				},
 				tickAmount: 20,
 				tooltip: {
 					enabled: false,
 				},
-				type: "datetime",
+				type: 'datetime',
 			},
 			yaxis: {
 				axisTicks: {
@@ -245,29 +245,29 @@ export class DashboardComponent implements OnInit, OnDestroy {
 				animations: {
 					enabled: false,
 				},
-				fontFamily: "inherit",
-				foreColor: "inherit",
-				height: "100%",
-				type: "area",
+				fontFamily: 'inherit',
+				foreColor: 'inherit',
+				height: '100%',
+				type: 'area',
 				sparkline: {
 					enabled: true,
 				},
 			},
-			colors: ["#38BDF8"],
+			colors: ['#38BDF8'],
 			fill: {
-				colors: ["#38BDF8"],
+				colors: ['#38BDF8'],
 				opacity: 0.5,
 			},
 			series: this.data.conversions.series,
 			stroke: {
-				curve: "smooth",
+				curve: 'smooth',
 			},
 			tooltip: {
 				followCursor: true,
-				theme: "dark",
+				theme: 'dark',
 			},
 			xaxis: {
-				type: "category",
+				type: 'category',
 				categories: this.data.conversions.labels,
 			},
 			yaxis: {
@@ -283,29 +283,29 @@ export class DashboardComponent implements OnInit, OnDestroy {
 				animations: {
 					enabled: false,
 				},
-				fontFamily: "inherit",
-				foreColor: "inherit",
-				height: "100%",
-				type: "area",
+				fontFamily: 'inherit',
+				foreColor: 'inherit',
+				height: '100%',
+				type: 'area',
 				sparkline: {
 					enabled: true,
 				},
 			},
-			colors: ["#34D399"],
+			colors: ['#34D399'],
 			fill: {
-				colors: ["#34D399"],
+				colors: ['#34D399'],
 				opacity: 0.5,
 			},
 			series: this.data.impressions.series,
 			stroke: {
-				curve: "smooth",
+				curve: 'smooth',
 			},
 			tooltip: {
 				followCursor: true,
-				theme: "dark",
+				theme: 'dark',
 			},
 			xaxis: {
-				type: "category",
+				type: 'category',
 				categories: this.data.impressions.labels,
 			},
 			yaxis: {
@@ -321,29 +321,29 @@ export class DashboardComponent implements OnInit, OnDestroy {
 				animations: {
 					enabled: false,
 				},
-				fontFamily: "inherit",
-				foreColor: "inherit",
-				height: "100%",
-				type: "area",
+				fontFamily: 'inherit',
+				foreColor: 'inherit',
+				height: '100%',
+				type: 'area',
 				sparkline: {
 					enabled: true,
 				},
 			},
-			colors: ["#FB7185"],
+			colors: ['#FB7185'],
 			fill: {
-				colors: ["#FB7185"],
+				colors: ['#FB7185'],
 				opacity: 0.5,
 			},
 			series: this.data.visits.series,
 			stroke: {
-				curve: "smooth",
+				curve: 'smooth',
 			},
 			tooltip: {
 				followCursor: true,
-				theme: "dark",
+				theme: 'dark',
 			},
 			xaxis: {
-				type: "category",
+				type: 'category',
 				categories: this.data.visits.labels,
 			},
 			yaxis: {
@@ -359,10 +359,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
 				animations: {
 					enabled: false,
 				},
-				fontFamily: "inherit",
-				foreColor: "inherit",
-				height: "100%",
-				type: "area",
+				fontFamily: 'inherit',
+				foreColor: 'inherit',
+				height: '100%',
+				type: 'area',
 				toolbar: {
 					show: false,
 				},
@@ -370,12 +370,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
 					enabled: false,
 				},
 			},
-			colors: ["#64748B", "#94A3B8"],
+			colors: ['#64748B', '#94A3B8'],
 			dataLabels: {
 				enabled: false,
 			},
 			fill: {
-				colors: ["#64748B", "#94A3B8"],
+				colors: ['#64748B', '#94A3B8'],
 				opacity: 0.5,
 			},
 			grid: {
@@ -391,14 +391,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
 			},
 			series: this.data.visitorsVsPageViews.series,
 			stroke: {
-				curve: "smooth",
+				curve: 'smooth',
 				width: 2,
 			},
 			tooltip: {
 				followCursor: true,
-				theme: "dark",
+				theme: 'dark',
 				x: {
-					format: "MMM dd, yyyy",
+					format: 'MMM dd, yyyy',
 				},
 			},
 			xaxis: {
@@ -409,19 +409,19 @@ export class DashboardComponent implements OnInit, OnDestroy {
 					offsetY: -20,
 					rotate: 0,
 					style: {
-						colors: "var(--fuse-text-secondary)",
+						colors: 'var(--fuse-text-secondary)',
 					},
 				},
 				tickAmount: 3,
 				tooltip: {
 					enabled: false,
 				},
-				type: "datetime",
+				type: 'datetime',
 			},
 			yaxis: {
 				labels: {
 					style: {
-						colors: "var(--fuse-text-secondary)",
+						colors: 'var(--fuse-text-secondary)',
 					},
 				},
 				max: (max): number => max + 250,
@@ -440,22 +440,22 @@ export class DashboardComponent implements OnInit, OnDestroy {
 						enabled: false,
 					},
 				},
-				fontFamily: "inherit",
-				foreColor: "inherit",
-				height: "100%",
-				type: "donut",
+				fontFamily: 'inherit',
+				foreColor: 'inherit',
+				height: '100%',
+				type: 'donut',
 				sparkline: {
 					enabled: true,
 				},
 			},
-			colors: ["#3182CE", "#63B3ED"],
+			colors: ['#3182CE', '#63B3ED'],
 			labels: this.data.newVsReturning.labels,
 			plotOptions: {
 				pie: {
 					customScale: 0.9,
 					expandOnClick: false,
 					donut: {
-						size: "70%",
+						size: '70%',
 					},
 				},
 			},
@@ -463,19 +463,19 @@ export class DashboardComponent implements OnInit, OnDestroy {
 			states: {
 				hover: {
 					filter: {
-						type: "none",
+						type: 'none',
 					},
 				},
 				active: {
 					filter: {
-						type: "none",
+						type: 'none',
 					},
 				},
 			},
 			tooltip: {
 				enabled: true,
 				fillSeriesColor: false,
-				theme: "dark",
+				theme: 'dark',
 				custom: ({
 					seriesIndex,
 					w,
@@ -496,22 +496,22 @@ export class DashboardComponent implements OnInit, OnDestroy {
 						enabled: false,
 					},
 				},
-				fontFamily: "inherit",
-				foreColor: "inherit",
-				height: "100%",
-				type: "donut",
+				fontFamily: 'inherit',
+				foreColor: 'inherit',
+				height: '100%',
+				type: 'donut',
 				sparkline: {
 					enabled: true,
 				},
 			},
-			colors: ["#319795", "#4FD1C5"],
+			colors: ['#319795', '#4FD1C5'],
 			labels: this.data.gender.labels,
 			plotOptions: {
 				pie: {
 					customScale: 0.9,
 					expandOnClick: false,
 					donut: {
-						size: "70%",
+						size: '70%',
 					},
 				},
 			},
@@ -519,19 +519,19 @@ export class DashboardComponent implements OnInit, OnDestroy {
 			states: {
 				hover: {
 					filter: {
-						type: "none",
+						type: 'none',
 					},
 				},
 				active: {
 					filter: {
-						type: "none",
+						type: 'none',
 					},
 				},
 			},
 			tooltip: {
 				enabled: true,
 				fillSeriesColor: false,
-				theme: "dark",
+				theme: 'dark',
 				custom: ({
 					seriesIndex,
 					w,
@@ -552,22 +552,22 @@ export class DashboardComponent implements OnInit, OnDestroy {
 						enabled: false,
 					},
 				},
-				fontFamily: "inherit",
-				foreColor: "inherit",
-				height: "100%",
-				type: "donut",
+				fontFamily: 'inherit',
+				foreColor: 'inherit',
+				height: '100%',
+				type: 'donut',
 				sparkline: {
 					enabled: true,
 				},
 			},
-			colors: ["#DD6B20", "#F6AD55"],
+			colors: ['#DD6B20', '#F6AD55'],
 			labels: this.data.age.labels,
 			plotOptions: {
 				pie: {
 					customScale: 0.9,
 					expandOnClick: false,
 					donut: {
-						size: "70%",
+						size: '70%',
 					},
 				},
 			},
@@ -575,19 +575,19 @@ export class DashboardComponent implements OnInit, OnDestroy {
 			states: {
 				hover: {
 					filter: {
-						type: "none",
+						type: 'none',
 					},
 				},
 				active: {
 					filter: {
-						type: "none",
+						type: 'none',
 					},
 				},
 			},
 			tooltip: {
 				enabled: true,
 				fillSeriesColor: false,
-				theme: "dark",
+				theme: 'dark',
 				custom: ({
 					seriesIndex,
 					w,
@@ -608,22 +608,22 @@ export class DashboardComponent implements OnInit, OnDestroy {
 						enabled: false,
 					},
 				},
-				fontFamily: "inherit",
-				foreColor: "inherit",
-				height: "100%",
-				type: "donut",
+				fontFamily: 'inherit',
+				foreColor: 'inherit',
+				height: '100%',
+				type: 'donut',
 				sparkline: {
 					enabled: true,
 				},
 			},
-			colors: ["#805AD5", "#B794F4"],
+			colors: ['#805AD5', '#B794F4'],
 			labels: this.data.language.labels,
 			plotOptions: {
 				pie: {
 					customScale: 0.9,
 					expandOnClick: false,
 					donut: {
-						size: "70%",
+						size: '70%',
 					},
 				},
 			},
@@ -631,19 +631,19 @@ export class DashboardComponent implements OnInit, OnDestroy {
 			states: {
 				hover: {
 					filter: {
-						type: "none",
+						type: 'none',
 					},
 				},
 				active: {
 					filter: {
-						type: "none",
+						type: 'none',
 					},
 				},
 			},
 			tooltip: {
 				enabled: true,
 				fillSeriesColor: false,
-				theme: "dark",
+				theme: 'dark',
 				custom: ({
 					seriesIndex,
 					w,

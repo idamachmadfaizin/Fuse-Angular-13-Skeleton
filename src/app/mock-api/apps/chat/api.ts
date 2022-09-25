@@ -1,15 +1,15 @@
-import { Injectable } from "@angular/core";
-import { assign, cloneDeep, omit } from "lodash-es";
-import { FuseMockApiService } from "@fuse/lib/mock-api";
+import { Injectable } from '@angular/core';
+import { assign, cloneDeep, omit } from 'lodash-es';
+import { FuseMockApiService } from '@fuse/lib/mock-api';
 import {
 	chats as chatsData,
 	contacts as contactsData,
 	messages as messagesData,
 	profile as profileData,
-} from "app/mock-api/apps/chat/data";
+} from 'app/mock-api/apps/chat/data';
 
 @Injectable({
-	providedIn: "root",
+	providedIn: 'root',
 })
 export class ChatMockApi {
 	private _chats: any[] = chatsData;
@@ -34,8 +34,8 @@ export class ChatMockApi {
 				...message,
 				chatId: chat.id,
 				contactId:
-					message.contactId === "me" ? this._profile.id : chat.contactId,
-				isMine: message.contactId === "me",
+					message.contactId === 'me' ? this._profile.id : chat.contactId,
+				isMine: message.contactId === 'me',
 			})),
 		}));
 	}
@@ -51,7 +51,7 @@ export class ChatMockApi {
 		// -----------------------------------------------------------------------------------------------------
 		// @ Chats - GET
 		// -----------------------------------------------------------------------------------------------------
-		this._fuseMockApiService.onGet("api/apps/chat/chats").reply(() => {
+		this._fuseMockApiService.onGet('api/apps/chat/chats').reply(() => {
 			// Clone the chats
 			const chats = cloneDeep(this._chats);
 
@@ -63,10 +63,10 @@ export class ChatMockApi {
 		// @ Chat - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/chat/chat")
+			.onGet('api/apps/chat/chat')
 			.reply(({ request }) => {
 				// Get the chat id
-				const id = request.params.get("id");
+				const id = request.params.get('id');
 
 				// Clone the chats
 				const chats = cloneDeep(this._chats);
@@ -82,7 +82,7 @@ export class ChatMockApi {
 		// @ Chat - PATCH
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPatch("api/apps/chat/chat")
+			.onPatch('api/apps/chat/chat')
 			.reply(({ request }) => {
 				// Get the id and chat
 				const id = request.body.id;
@@ -109,7 +109,7 @@ export class ChatMockApi {
 		// -----------------------------------------------------------------------------------------------------
 		// @ Contacts - GET
 		// -----------------------------------------------------------------------------------------------------
-		this._fuseMockApiService.onGet("api/apps/chat/contacts").reply(() => {
+		this._fuseMockApiService.onGet('api/apps/chat/contacts').reply(() => {
 			// Clone the contacts
 			let contacts = cloneDeep(this._contacts);
 
@@ -118,7 +118,7 @@ export class ChatMockApi {
 
 			// Omit details and attachments from contacts
 			contacts = contacts.map(contact =>
-				omit(contact, ["details", "attachments"])
+				omit(contact, ['details', 'attachments'])
 			);
 
 			// Return the response
@@ -129,10 +129,10 @@ export class ChatMockApi {
 		// @ Contact Details - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/chat/contact")
+			.onGet('api/apps/chat/contact')
 			.reply(({ request }) => {
 				// Get the contact id
-				const id = request.params.get("id");
+				const id = request.params.get('id');
 
 				// Clone the contacts
 				const contacts = cloneDeep(this._contacts);
@@ -147,7 +147,7 @@ export class ChatMockApi {
 		// -----------------------------------------------------------------------------------------------------
 		// @ Profile - GET
 		// -----------------------------------------------------------------------------------------------------
-		this._fuseMockApiService.onGet("api/apps/chat/profile").reply(() => {
+		this._fuseMockApiService.onGet('api/apps/chat/profile').reply(() => {
 			// Clone the profile
 			const profile = cloneDeep(this._profile);
 

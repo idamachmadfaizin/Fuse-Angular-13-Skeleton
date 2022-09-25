@@ -1,4 +1,4 @@
-import { Inject, Injectable } from "@angular/core";
+import { Inject, Injectable } from '@angular/core';
 import {
 	HttpErrorResponse,
 	HttpEvent,
@@ -6,13 +6,13 @@ import {
 	HttpInterceptor,
 	HttpRequest,
 	HttpResponse,
-} from "@angular/common/http";
-import { delay, Observable, of, switchMap, throwError } from "rxjs";
-import { FUSE_MOCK_API_DEFAULT_DELAY } from "@fuse/lib/mock-api/mock-api.constants";
-import { FuseMockApiService } from "@fuse/lib/mock-api/mock-api.service";
+} from '@angular/common/http';
+import { delay, Observable, of, switchMap, throwError } from 'rxjs';
+import { FUSE_MOCK_API_DEFAULT_DELAY } from '@fuse/lib/mock-api/mock-api.constants';
+import { FuseMockApiService } from '@fuse/lib/mock-api/mock-api.service';
 
 @Injectable({
-	providedIn: "root",
+	providedIn: 'root',
 })
 export class FuseMockApiInterceptor implements HttpInterceptor {
 	/**
@@ -58,9 +58,9 @@ export class FuseMockApiInterceptor implements HttpInterceptor {
 				// throw an error response
 				if (!response) {
 					response = new HttpErrorResponse({
-						error: "NOT FOUND",
+						error: 'NOT FOUND',
 						status: 404,
-						statusText: "NOT FOUND",
+						statusText: 'NOT FOUND',
 					});
 
 					return throwError(() => response);
@@ -78,7 +78,7 @@ export class FuseMockApiInterceptor implements HttpInterceptor {
 					response = new HttpResponse({
 						body: data.body,
 						status: data.status,
-						statusText: "OK",
+						statusText: 'OK',
 					});
 
 					return of(response);
@@ -89,7 +89,7 @@ export class FuseMockApiInterceptor implements HttpInterceptor {
 				response = new HttpErrorResponse({
 					error: data.body.error,
 					status: data.status,
-					statusText: "ERROR",
+					statusText: 'ERROR',
 				});
 
 				return throwError(() => response);

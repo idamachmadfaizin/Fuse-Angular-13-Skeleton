@@ -7,17 +7,17 @@ import {
 	OnDestroy,
 	OnInit,
 	SimpleChanges,
-} from "@angular/core";
-import { NavigationEnd, Router } from "@angular/router";
-import { BooleanInput } from "@angular/cdk/coercion";
-import { filter, Subject, takeUntil } from "rxjs";
-import { FuseVerticalNavigationComponent } from "@fuse/components/navigation/vertical/vertical.component";
-import { FuseNavigationService } from "@fuse/components/navigation/navigation.service";
-import { FuseNavigationItem } from "@fuse/components/navigation/navigation.types";
+} from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { BooleanInput } from '@angular/cdk/coercion';
+import { filter, Subject, takeUntil } from 'rxjs';
+import { FuseVerticalNavigationComponent } from '@fuse/components/navigation/vertical/vertical.component';
+import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
+import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
 
 @Component({
-	selector: "fuse-vertical-navigation-aside-item",
-	templateUrl: "./aside.component.html",
+	selector: 'fuse-vertical-navigation-aside-item',
+	templateUrl: './aside.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FuseVerticalNavigationAsideItemComponent
@@ -58,7 +58,7 @@ export class FuseVerticalNavigationAsideItemComponent
 	 */
 	ngOnChanges(changes: SimpleChanges): void {
 		// Active item id
-		if ("activeItemId" in changes) {
+		if ('activeItemId' in changes) {
 			// Mark if active
 			this._markIfActive(this._router.url);
 		}
@@ -150,7 +150,7 @@ export class FuseVerticalNavigationAsideItemComponent
 			}
 
 			// Skip items other than 'basic'
-			if (child.type !== "basic") {
+			if (child.type !== 'basic') {
 				continue;
 			}
 

@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import { Observable, ReplaySubject } from "rxjs";
+import { Injectable } from '@angular/core';
+import { Observable, ReplaySubject } from 'rxjs';
 
 @Injectable({
-	providedIn: "root",
+	providedIn: 'root',
 })
 export class FuseAlertService {
 	private readonly _onDismiss: ReplaySubject<string> =

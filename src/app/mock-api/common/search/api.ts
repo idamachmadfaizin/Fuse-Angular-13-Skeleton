@@ -1,16 +1,16 @@
-import { Injectable } from "@angular/core";
-import { cloneDeep } from "lodash-es";
+import { Injectable } from '@angular/core';
+import { cloneDeep } from 'lodash-es';
 import {
 	FuseNavigationItem,
 	FuseNavigationService,
-} from "@fuse/components/navigation";
-import { FuseMockApiService } from "@fuse/lib/mock-api";
-import { defaultNavigation } from "app/mock-api/common/navigation/data";
-import { contacts } from "app/mock-api/apps/contacts/data";
-import { tasks } from "app/mock-api/apps/tasks/data";
+} from '@fuse/components/navigation';
+import { FuseMockApiService } from '@fuse/lib/mock-api';
+import { defaultNavigation } from 'app/mock-api/common/navigation/data';
+import { contacts } from 'app/mock-api/apps/contacts/data';
+import { tasks } from 'app/mock-api/apps/tasks/data';
 
 @Injectable({
-	providedIn: "root",
+	providedIn: 'root',
 })
 export class SearchMockApi {
 	private readonly _defaultNavigation: FuseNavigationItem[] =
@@ -46,14 +46,14 @@ export class SearchMockApi {
 		// @ Search results - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPost("api/common/search")
+			.onPost('api/common/search')
 			.reply(({ request }) => {
 				// Get the search query
 				const query = cloneDeep(request.body.query.toLowerCase());
 
 				// If the search query is an empty string,
 				// return an empty array
-				if (query === "") {
+				if (query === '') {
 					return [200, { results: [] }];
 				}
 
@@ -82,13 +82,13 @@ export class SearchMockApi {
 					// Normalize the results
 					contactsResults.forEach(result => {
 						// Add a link
-						result.link = "/apps/contacts/" + result.id;
+						result.link = '/apps/contacts/' + result.id;
 					});
 
 					// Add to the results
 					results.push({
-						id: "contacts",
-						label: "Contacts",
+						id: 'contacts',
+						label: 'Contacts',
 						results: contactsResults,
 					});
 				}
@@ -100,8 +100,8 @@ export class SearchMockApi {
 
 					// Add to the results
 					results.push({
-						id: "pages",
-						label: "Pages",
+						id: 'pages',
+						label: 'Pages',
 						results: pagesResults,
 					});
 				}
@@ -111,13 +111,13 @@ export class SearchMockApi {
 					// Normalize the results
 					tasksResults.forEach(result => {
 						// Add a link
-						result.link = "/apps/tasks/" + result.id;
+						result.link = '/apps/tasks/' + result.id;
 					});
 
 					// Add to the results
 					results.push({
-						id: "tasks",
-						label: "Tasks",
+						id: 'tasks',
+						label: 'Tasks',
 						results: tasksResults,
 					});
 				}

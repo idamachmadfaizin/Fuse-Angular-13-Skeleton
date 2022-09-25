@@ -1,16 +1,16 @@
-import { Injectable } from "@angular/core";
-import { cloneDeep } from "lodash-es";
-import { FuseMockApiService } from "@fuse/lib/mock-api";
+import { Injectable } from '@angular/core';
+import { cloneDeep } from 'lodash-es';
+import { FuseMockApiService } from '@fuse/lib/mock-api';
 import {
 	faqCategories as faqCategoriesData,
 	faqs as faqsData,
 	guideCategories as guideCategoriesData,
 	guideContent as guideContentData,
 	guides as guidesData,
-} from "app/mock-api/apps/help-center/data";
+} from 'app/mock-api/apps/help-center/data';
 
 @Injectable({
-	providedIn: "root",
+	providedIn: 'root',
 })
 export class HelpCenterMockApi {
 	private _faqCategories: any[] = faqCategoriesData;
@@ -39,10 +39,10 @@ export class HelpCenterMockApi {
 		// @ FAQs - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/help-center/faqs")
+			.onGet('api/apps/help-center/faqs')
 			.reply(({ request }) => {
 				// Get the category slug
-				const slug = request.params.get("slug");
+				const slug = request.params.get('slug');
 
 				// Prepare the results
 				const results = [];
@@ -83,11 +83,11 @@ export class HelpCenterMockApi {
 		// @ Guides - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/help-center/guides")
+			.onGet('api/apps/help-center/guides')
 			.reply(({ request }) => {
 				// Get the slug & limit
-				const slug = request.params.get("slug");
-				const limit = request.params.get("limit");
+				const slug = request.params.get('slug');
+				const limit = request.params.get('limit');
 
 				// Prepare the results
 				const results = [];
@@ -101,7 +101,7 @@ export class HelpCenterMockApi {
 				// If slug is not provided...
 				if (!slug) {
 					// Parse the limit as an integer
-					const limitNum = parseInt(limit ?? "5", 10);
+					const limitNum = parseInt(limit ?? '5', 10);
 
 					// Go through each category and set the results
 					categories.forEach(category => {
@@ -139,11 +139,11 @@ export class HelpCenterMockApi {
 		// @ Guide - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/help-center/guide")
+			.onGet('api/apps/help-center/guide')
 			.reply(({ request }) => {
 				// Get the slugs
-				const categorySlug = request.params.get("categorySlug");
-				const guideSlug = request.params.get("guideSlug");
+				const categorySlug = request.params.get('categorySlug');
+				const guideSlug = request.params.get('guideSlug');
 
 				// Get all Guides and Guide Categories
 				const guides = cloneDeep(this._guides);
@@ -156,7 +156,7 @@ export class HelpCenterMockApi {
 				};
 
 				// Add the content to the guide
-				result.guides[0]["content"] = this._guideContent;
+				result.guides[0]['content'] = this._guideContent;
 
 				// Return the response
 				return [200, result];

@@ -4,35 +4,35 @@ import {
 	style,
 	transition,
 	trigger,
-} from "@angular/animations";
+} from '@angular/animations';
 import {
 	FuseAnimationCurves,
 	FuseAnimationDurations,
-} from "@fuse/animations/defaults";
+} from '@fuse/animations/defaults';
 
 // -----------------------------------------------------------------------------------------------------
 // @ Fade in
 // -----------------------------------------------------------------------------------------------------
-const fadeIn = trigger("fadeIn", [
+const fadeIn = trigger('fadeIn', [
 	state(
-		"void",
+		'void',
 		style({
 			opacity: 0,
 		})
 	),
 
 	state(
-		"*",
+		'*',
 		style({
 			opacity: 1,
 		})
 	),
 
 	// Prevent the transition if the state is false
-	transition("void => false", []),
+	transition('void => false', []),
 
 	// Transition
-	transition("void => *", animate("{{timings}}"), {
+	transition('void => *', animate('{{timings}}'), {
 		params: {
 			timings: `${FuseAnimationDurations.entering} ${FuseAnimationCurves.deceleration}`,
 		},
@@ -42,28 +42,28 @@ const fadeIn = trigger("fadeIn", [
 // -----------------------------------------------------------------------------------------------------
 // @ Fade in top
 // -----------------------------------------------------------------------------------------------------
-const fadeInTop = trigger("fadeInTop", [
+const fadeInTop = trigger('fadeInTop', [
 	state(
-		"void",
+		'void',
 		style({
 			opacity: 0,
-			transform: "translate3d(0, -100%, 0)",
+			transform: 'translate3d(0, -100%, 0)',
 		})
 	),
 
 	state(
-		"*",
+		'*',
 		style({
 			opacity: 1,
-			transform: "translate3d(0, 0, 0)",
+			transform: 'translate3d(0, 0, 0)',
 		})
 	),
 
 	// Prevent the transition if the state is false
-	transition("void => false", []),
+	transition('void => false', []),
 
 	// Transition
-	transition("void => *", animate("{{timings}}"), {
+	transition('void => *', animate('{{timings}}'), {
 		params: {
 			timings: `${FuseAnimationDurations.entering} ${FuseAnimationCurves.deceleration}`,
 		},
@@ -73,28 +73,28 @@ const fadeInTop = trigger("fadeInTop", [
 // -----------------------------------------------------------------------------------------------------
 // @ Fade in bottom
 // -----------------------------------------------------------------------------------------------------
-const fadeInBottom = trigger("fadeInBottom", [
+const fadeInBottom = trigger('fadeInBottom', [
 	state(
-		"void",
+		'void',
 		style({
 			opacity: 0,
-			transform: "translate3d(0, 100%, 0)",
+			transform: 'translate3d(0, 100%, 0)',
 		})
 	),
 
 	state(
-		"*",
+		'*',
 		style({
 			opacity: 1,
-			transform: "translate3d(0, 0, 0)",
+			transform: 'translate3d(0, 0, 0)',
 		})
 	),
 
 	// Prevent the transition if the state is false
-	transition("void => false", []),
+	transition('void => false', []),
 
 	// Transition
-	transition("void => *", animate("{{timings}}"), {
+	transition('void => *', animate('{{timings}}'), {
 		params: {
 			timings: `${FuseAnimationDurations.entering} ${FuseAnimationCurves.deceleration}`,
 		},
@@ -104,28 +104,28 @@ const fadeInBottom = trigger("fadeInBottom", [
 // -----------------------------------------------------------------------------------------------------
 // @ Fade in left
 // -----------------------------------------------------------------------------------------------------
-const fadeInLeft = trigger("fadeInLeft", [
+const fadeInLeft = trigger('fadeInLeft', [
 	state(
-		"void",
+		'void',
 		style({
 			opacity: 0,
-			transform: "translate3d(-100%, 0, 0)",
+			transform: 'translate3d(-100%, 0, 0)',
 		})
 	),
 
 	state(
-		"*",
+		'*',
 		style({
 			opacity: 1,
-			transform: "translate3d(0, 0, 0)",
+			transform: 'translate3d(0, 0, 0)',
 		})
 	),
 
 	// Prevent the transition if the state is false
-	transition("void => false", []),
+	transition('void => false', []),
 
 	// Transition
-	transition("void => *", animate("{{timings}}"), {
+	transition('void => *', animate('{{timings}}'), {
 		params: {
 			timings: `${FuseAnimationDurations.entering} ${FuseAnimationCurves.deceleration}`,
 		},
@@ -135,28 +135,28 @@ const fadeInLeft = trigger("fadeInLeft", [
 // -----------------------------------------------------------------------------------------------------
 // @ Fade in right
 // -----------------------------------------------------------------------------------------------------
-const fadeInRight = trigger("fadeInRight", [
+const fadeInRight = trigger('fadeInRight', [
 	state(
-		"void",
+		'void',
 		style({
 			opacity: 0,
-			transform: "translate3d(100%, 0, 0)",
+			transform: 'translate3d(100%, 0, 0)',
 		})
 	),
 
 	state(
-		"*",
+		'*',
 		style({
 			opacity: 1,
-			transform: "translate3d(0, 0, 0)",
+			transform: 'translate3d(0, 0, 0)',
 		})
 	),
 
 	// Prevent the transition if the state is false
-	transition("void => false", []),
+	transition('void => false', []),
 
 	// Transition
-	transition("void => *", animate("{{timings}}"), {
+	transition('void => *', animate('{{timings}}'), {
 		params: {
 			timings: `${FuseAnimationDurations.entering} ${FuseAnimationCurves.deceleration}`,
 		},
@@ -166,26 +166,26 @@ const fadeInRight = trigger("fadeInRight", [
 // -----------------------------------------------------------------------------------------------------
 // @ Fade out
 // -----------------------------------------------------------------------------------------------------
-const fadeOut = trigger("fadeOut", [
+const fadeOut = trigger('fadeOut', [
 	state(
-		"*",
+		'*',
 		style({
 			opacity: 1,
 		})
 	),
 
 	state(
-		"void",
+		'void',
 		style({
 			opacity: 0,
 		})
 	),
 
 	// Prevent the transition if the state is false
-	transition("false => void", []),
+	transition('false => void', []),
 
 	// Transition
-	transition("* => void", animate("{{timings}}"), {
+	transition('* => void', animate('{{timings}}'), {
 		params: {
 			timings: `${FuseAnimationDurations.exiting} ${FuseAnimationCurves.acceleration}`,
 		},
@@ -195,28 +195,28 @@ const fadeOut = trigger("fadeOut", [
 // -----------------------------------------------------------------------------------------------------
 // @ Fade out top
 // -----------------------------------------------------------------------------------------------------
-const fadeOutTop = trigger("fadeOutTop", [
+const fadeOutTop = trigger('fadeOutTop', [
 	state(
-		"*",
+		'*',
 		style({
 			opacity: 1,
-			transform: "translate3d(0, 0, 0)",
+			transform: 'translate3d(0, 0, 0)',
 		})
 	),
 
 	state(
-		"void",
+		'void',
 		style({
 			opacity: 0,
-			transform: "translate3d(0, -100%, 0)",
+			transform: 'translate3d(0, -100%, 0)',
 		})
 	),
 
 	// Prevent the transition if the state is false
-	transition("false => void", []),
+	transition('false => void', []),
 
 	// Transition
-	transition("* => void", animate("{{timings}}"), {
+	transition('* => void', animate('{{timings}}'), {
 		params: {
 			timings: `${FuseAnimationDurations.exiting} ${FuseAnimationCurves.acceleration}`,
 		},
@@ -226,28 +226,28 @@ const fadeOutTop = trigger("fadeOutTop", [
 // -----------------------------------------------------------------------------------------------------
 // @ Fade out bottom
 // -----------------------------------------------------------------------------------------------------
-const fadeOutBottom = trigger("fadeOutBottom", [
+const fadeOutBottom = trigger('fadeOutBottom', [
 	state(
-		"*",
+		'*',
 		style({
 			opacity: 1,
-			transform: "translate3d(0, 0, 0)",
+			transform: 'translate3d(0, 0, 0)',
 		})
 	),
 
 	state(
-		"void",
+		'void',
 		style({
 			opacity: 0,
-			transform: "translate3d(0, 100%, 0)",
+			transform: 'translate3d(0, 100%, 0)',
 		})
 	),
 
 	// Prevent the transition if the state is false
-	transition("false => void", []),
+	transition('false => void', []),
 
 	// Transition
-	transition("* => void", animate("{{timings}}"), {
+	transition('* => void', animate('{{timings}}'), {
 		params: {
 			timings: `${FuseAnimationDurations.exiting} ${FuseAnimationCurves.acceleration}`,
 		},
@@ -257,28 +257,28 @@ const fadeOutBottom = trigger("fadeOutBottom", [
 // -----------------------------------------------------------------------------------------------------
 // @ Fade out left
 // -----------------------------------------------------------------------------------------------------
-const fadeOutLeft = trigger("fadeOutLeft", [
+const fadeOutLeft = trigger('fadeOutLeft', [
 	state(
-		"*",
+		'*',
 		style({
 			opacity: 1,
-			transform: "translate3d(0, 0, 0)",
+			transform: 'translate3d(0, 0, 0)',
 		})
 	),
 
 	state(
-		"void",
+		'void',
 		style({
 			opacity: 0,
-			transform: "translate3d(-100%, 0, 0)",
+			transform: 'translate3d(-100%, 0, 0)',
 		})
 	),
 
 	// Prevent the transition if the state is false
-	transition("false => void", []),
+	transition('false => void', []),
 
 	// Transition
-	transition("* => void", animate("{{timings}}"), {
+	transition('* => void', animate('{{timings}}'), {
 		params: {
 			timings: `${FuseAnimationDurations.exiting} ${FuseAnimationCurves.acceleration}`,
 		},
@@ -288,28 +288,28 @@ const fadeOutLeft = trigger("fadeOutLeft", [
 // -----------------------------------------------------------------------------------------------------
 // @ Fade out right
 // -----------------------------------------------------------------------------------------------------
-const fadeOutRight = trigger("fadeOutRight", [
+const fadeOutRight = trigger('fadeOutRight', [
 	state(
-		"*",
+		'*',
 		style({
 			opacity: 1,
-			transform: "translate3d(0, 0, 0)",
+			transform: 'translate3d(0, 0, 0)',
 		})
 	),
 
 	state(
-		"void",
+		'void',
 		style({
 			opacity: 0,
-			transform: "translate3d(100%, 0, 0)",
+			transform: 'translate3d(100%, 0, 0)',
 		})
 	),
 
 	// Prevent the transition if the state is false
-	transition("false => void", []),
+	transition('false => void', []),
 
 	// Transition
-	transition("* => void", animate("{{timings}}"), {
+	transition('* => void', animate('{{timings}}'), {
 		params: {
 			timings: `${FuseAnimationDurations.exiting} ${FuseAnimationCurves.acceleration}`,
 		},

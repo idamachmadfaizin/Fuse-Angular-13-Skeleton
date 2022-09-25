@@ -6,17 +6,17 @@ import {
 	SimpleChanges,
 	TemplateRef,
 	ViewEncapsulation,
-} from "@angular/core";
-import { fuseAnimations } from "@fuse/animations";
-import { FuseMediaWatcherService } from "@fuse/services/media-watcher";
+} from '@angular/core';
+import { fuseAnimations } from '@fuse/animations';
+import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
 
 @Component({
-	selector: "fuse-masonry",
-	templateUrl: "./masonry.component.html",
-	styleUrls: ["./masonry.component.scss"],
+	selector: 'fuse-masonry',
+	templateUrl: './masonry.component.html',
+	styleUrls: ['./masonry.component.scss'],
 	encapsulation: ViewEncapsulation.None,
 	animations: fuseAnimations,
-	exportAs: "fuseMasonry",
+	exportAs: 'fuseMasonry',
 })
 export class FuseMasonryComponent implements OnChanges, AfterViewInit {
 	@Input() columnsTemplate: TemplateRef<any>;
@@ -40,13 +40,13 @@ export class FuseMasonryComponent implements OnChanges, AfterViewInit {
 	 */
 	ngOnChanges(changes: SimpleChanges): void {
 		// Columns
-		if ("columns" in changes) {
+		if ('columns' in changes) {
 			// Distribute the items
 			this._distributeItems();
 		}
 
 		// Items
-		if ("items" in changes) {
+		if ('items' in changes) {
 			// Distribute the items
 			this._distributeItems();
 		}

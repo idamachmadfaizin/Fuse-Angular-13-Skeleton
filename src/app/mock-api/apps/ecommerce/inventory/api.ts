@@ -1,16 +1,16 @@
-import { Injectable } from "@angular/core";
-import { assign, cloneDeep } from "lodash-es";
-import { FuseMockApiService, FuseMockApiUtils } from "@fuse/lib/mock-api";
+import { Injectable } from '@angular/core';
+import { assign, cloneDeep } from 'lodash-es';
+import { FuseMockApiService, FuseMockApiUtils } from '@fuse/lib/mock-api';
 import {
 	brands as brandsData,
 	categories as categoriesData,
 	products as productsData,
 	tags as tagsData,
 	vendors as vendorsData,
-} from "app/mock-api/apps/ecommerce/inventory/data";
+} from 'app/mock-api/apps/ecommerce/inventory/data';
 
 @Injectable({
-	providedIn: "root",
+	providedIn: 'root',
 })
 export class ECommerceInventoryMockApi {
 	private _categories: any[] = categoriesData;
@@ -39,44 +39,44 @@ export class ECommerceInventoryMockApi {
 		// @ Categories - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/ecommerce/inventory/categories")
+			.onGet('api/apps/ecommerce/inventory/categories')
 			.reply(() => [200, cloneDeep(this._categories)]);
 
 		// -----------------------------------------------------------------------------------------------------
 		// @ Brands - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/ecommerce/inventory/brands")
+			.onGet('api/apps/ecommerce/inventory/brands')
 			.reply(() => [200, cloneDeep(this._brands)]);
 
 		// -----------------------------------------------------------------------------------------------------
 		// @ Products - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/ecommerce/inventory/products", 300)
+			.onGet('api/apps/ecommerce/inventory/products', 300)
 			.reply(({ request }) => {
 				// Get available queries
-				const search = request.params.get("search");
-				const sort = request.params.get("sort") || "name";
-				const order = request.params.get("order") || "asc";
-				const page = parseInt(request.params.get("page") ?? "1", 10);
-				const size = parseInt(request.params.get("size") ?? "10", 10);
+				const search = request.params.get('search');
+				const sort = request.params.get('sort') || 'name';
+				const order = request.params.get('order') || 'asc';
+				const page = parseInt(request.params.get('page') ?? '1', 10);
+				const size = parseInt(request.params.get('size') ?? '10', 10);
 
 				// Clone the products
 				let products: any[] | null = cloneDeep(this._products);
 
 				// Sort the products
-				if (sort === "sku" || sort === "name" || sort === "active") {
+				if (sort === 'sku' || sort === 'name' || sort === 'active') {
 					products.sort((a, b) => {
 						const fieldA = a[sort].toString().toUpperCase();
 						const fieldB = b[sort].toString().toUpperCase();
-						return order === "asc"
+						return order === 'asc'
 							? fieldA.localeCompare(fieldB)
 							: fieldB.localeCompare(fieldA);
 					});
 				} else {
 					products.sort((a, b) =>
-						order === "asc" ? a[sort] - b[sort] : b[sort] - a[sort]
+						order === 'asc' ? a[sort] - b[sort] : b[sort] - a[sort]
 					);
 				}
 
@@ -139,10 +139,10 @@ export class ECommerceInventoryMockApi {
 		// @ Product - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/ecommerce/inventory/product")
+			.onGet('api/apps/ecommerce/inventory/product')
 			.reply(({ request }) => {
 				// Get the id from the params
-				const id = request.params.get("id");
+				const id = request.params.get('id');
 
 				// Clone the products
 				const products = cloneDeep(this._products);
@@ -158,27 +158,27 @@ export class ECommerceInventoryMockApi {
 		// @ Product - POST
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPost("api/apps/ecommerce/inventory/product")
+			.onPost('api/apps/ecommerce/inventory/product')
 			.reply(() => {
 				// Generate a new product
 				const newProduct = {
 					id: FuseMockApiUtils.guid(),
-					category: "",
-					name: "A New Product",
-					description: "",
+					category: '',
+					name: 'A New Product',
+					description: '',
 					tags: [],
-					sku: "",
-					barcode: "",
-					brand: "",
-					vendor: "",
-					stock: "",
-					reserved: "",
-					cost: "",
-					basePrice: "",
-					taxPercent: "",
-					price: "",
-					weight: "",
-					thumbnail: "",
+					sku: '',
+					barcode: '',
+					brand: '',
+					vendor: '',
+					stock: '',
+					reserved: '',
+					cost: '',
+					basePrice: '',
+					taxPercent: '',
+					price: '',
+					weight: '',
+					thumbnail: '',
 					images: [],
 					active: false,
 				};
@@ -194,7 +194,7 @@ export class ECommerceInventoryMockApi {
 		// @ Product - PATCH
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPatch("api/apps/ecommerce/inventory/product")
+			.onPatch('api/apps/ecommerce/inventory/product')
 			.reply(({ request }) => {
 				// Get the id and product
 				const id = request.body.id;
@@ -222,10 +222,10 @@ export class ECommerceInventoryMockApi {
 		// @ Product - DELETE
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onDelete("api/apps/ecommerce/inventory/product")
+			.onDelete('api/apps/ecommerce/inventory/product')
 			.reply(({ request }) => {
 				// Get the id
-				const id = request.params.get("id");
+				const id = request.params.get('id');
 
 				// Find the product and delete it
 				this._products.forEach((item, index) => {
@@ -242,14 +242,14 @@ export class ECommerceInventoryMockApi {
 		// @ Tags - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/ecommerce/inventory/tags")
+			.onGet('api/apps/ecommerce/inventory/tags')
 			.reply(() => [200, cloneDeep(this._tags)]);
 
 		// -----------------------------------------------------------------------------------------------------
 		// @ Tags - POST
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPost("api/apps/ecommerce/inventory/tag")
+			.onPost('api/apps/ecommerce/inventory/tag')
 			.reply(({ request }) => {
 				// Get the tag
 				const newTag = cloneDeep(request.body.tag);
@@ -268,7 +268,7 @@ export class ECommerceInventoryMockApi {
 		// @ Tags - PATCH
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPatch("api/apps/ecommerce/inventory/tag")
+			.onPatch('api/apps/ecommerce/inventory/tag')
 			.reply(({ request }) => {
 				// Get the id and tag
 				const id = request.body.id;
@@ -296,10 +296,10 @@ export class ECommerceInventoryMockApi {
 		// @ Tag - DELETE
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onDelete("api/apps/ecommerce/inventory/tag")
+			.onDelete('api/apps/ecommerce/inventory/tag')
 			.reply(({ request }) => {
 				// Get the id
-				const id = request.params.get("id");
+				const id = request.params.get('id');
 
 				// Find the tag and delete it
 				this._tags.forEach((item, index) => {
@@ -326,7 +326,7 @@ export class ECommerceInventoryMockApi {
 		// @ Vendors - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/ecommerce/inventory/vendors")
+			.onGet('api/apps/ecommerce/inventory/vendors')
 			.reply(() => [200, cloneDeep(this._vendors)]);
 	}
 }

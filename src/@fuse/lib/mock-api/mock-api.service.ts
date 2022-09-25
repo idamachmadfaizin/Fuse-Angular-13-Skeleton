@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
-import { compact, fromPairs } from "lodash-es";
-import { FuseMockApiHandler } from "@fuse/lib/mock-api/mock-api.request-handler";
-import { FuseMockApiMethods } from "@fuse/lib/mock-api/mock-api.types";
+import { Injectable } from '@angular/core';
+import { compact, fromPairs } from 'lodash-es';
+import { FuseMockApiHandler } from '@fuse/lib/mock-api/mock-api.request-handler';
+import { FuseMockApiMethods } from '@fuse/lib/mock-api/mock-api.types';
 
 @Injectable({
-	providedIn: "root",
+	providedIn: 'root',
 })
 export class FuseMockApiService {
 	private _handlers: { [key: string]: Map<string, FuseMockApiHandler> } = {
@@ -51,7 +51,7 @@ export class FuseMockApiService {
 		};
 
 		// Split the url
-		const urlParts = url.split("/");
+		const urlParts = url.split('/');
 
 		// Get all related request handlers
 		const handlers = this._handlers[method.toLowerCase()];
@@ -64,7 +64,7 @@ export class FuseMockApiService {
 			}
 
 			// Split the handler url
-			const handlerUrlParts = handlerUrl.split("/");
+			const handlerUrlParts = handlerUrl.split('/');
 
 			// Skip if the lengths of the urls we are comparing are not the same
 			if (urlParts.length !== handlerUrlParts.length) {
@@ -75,7 +75,7 @@ export class FuseMockApiService {
 			const matches = handlerUrlParts.every(
 				(handlerUrlPart, index) =>
 					handlerUrlPart === urlParts[index] ||
-					handlerUrlPart.startsWith(":")
+					handlerUrlPart.startsWith(':')
 			);
 
 			// If there is a match...
@@ -87,7 +87,7 @@ export class FuseMockApiService {
 				matchingHandler.urlParams = fromPairs(
 					compact(
 						handlerUrlParts.map((handlerUrlPart, index) =>
-							handlerUrlPart.startsWith(":")
+							handlerUrlPart.startsWith(':')
 								? [handlerUrlPart.substring(1), urlParts[index]]
 								: undefined
 						)
@@ -106,7 +106,7 @@ export class FuseMockApiService {
 	 * @param delay - Delay of the response in milliseconds
 	 */
 	onGet(url: string, delay?: number): FuseMockApiHandler {
-		return this._registerHandler("get", url, delay);
+		return this._registerHandler('get', url, delay);
 	}
 
 	/**
@@ -116,7 +116,7 @@ export class FuseMockApiService {
 	 * @param delay - Delay of the response in milliseconds
 	 */
 	onPost(url: string, delay?: number): FuseMockApiHandler {
-		return this._registerHandler("post", url, delay);
+		return this._registerHandler('post', url, delay);
 	}
 
 	/**
@@ -126,7 +126,7 @@ export class FuseMockApiService {
 	 * @param delay - Delay of the response in milliseconds
 	 */
 	onPatch(url: string, delay?: number): FuseMockApiHandler {
-		return this._registerHandler("patch", url, delay);
+		return this._registerHandler('patch', url, delay);
 	}
 
 	/**
@@ -136,7 +136,7 @@ export class FuseMockApiService {
 	 * @param delay - Delay of the response in milliseconds
 	 */
 	onDelete(url: string, delay?: number): FuseMockApiHandler {
-		return this._registerHandler("delete", url, delay);
+		return this._registerHandler('delete', url, delay);
 	}
 
 	/**
@@ -146,7 +146,7 @@ export class FuseMockApiService {
 	 * @param delay - Delay of the response in milliseconds
 	 */
 	onPut(url: string, delay?: number): FuseMockApiHandler {
-		return this._registerHandler("put", url, delay);
+		return this._registerHandler('put', url, delay);
 	}
 
 	/**
@@ -156,7 +156,7 @@ export class FuseMockApiService {
 	 * @param delay - Delay of the response in milliseconds
 	 */
 	onHead(url: string, delay?: number): FuseMockApiHandler {
-		return this._registerHandler("head", url, delay);
+		return this._registerHandler('head', url, delay);
 	}
 
 	/**
@@ -166,7 +166,7 @@ export class FuseMockApiService {
 	 * @param delay - Delay of the response in milliseconds
 	 */
 	onJsonp(url: string, delay?: number): FuseMockApiHandler {
-		return this._registerHandler("jsonp", url, delay);
+		return this._registerHandler('jsonp', url, delay);
 	}
 
 	/**
@@ -176,7 +176,7 @@ export class FuseMockApiService {
 	 * @param delay - Delay of the response in milliseconds
 	 */
 	onOptions(url: string, delay?: number): FuseMockApiHandler {
-		return this._registerHandler("options", url, delay);
+		return this._registerHandler('options', url, delay);
 	}
 
 	// -----------------------------------------------------------------------------------------------------

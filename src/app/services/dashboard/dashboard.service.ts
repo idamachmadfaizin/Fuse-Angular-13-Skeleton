@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { BehaviorSubject, Observable } from "rxjs";
-import { tap } from "rxjs/operators";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
-	providedIn: "root",
+	providedIn: 'root',
 })
 export class DashboardService {
 	private _data: BehaviorSubject<any> = new BehaviorSubject(null);
@@ -29,7 +29,7 @@ export class DashboardService {
 
 	/*** Get data ***/
 	getData(): Observable<any> {
-		return this._httpClient.get("api/dashboards/analytics").pipe(
+		return this._httpClient.get('api/dashboards/analytics').pipe(
 			tap((response: any) => {
 				this._data.next(response);
 			})

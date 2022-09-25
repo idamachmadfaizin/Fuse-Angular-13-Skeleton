@@ -1,6 +1,6 @@
-import { HttpRequest } from "@angular/common/http";
-import { Observable, of, take, throwError } from "rxjs";
-import { FuseMockApiReplyCallback } from "@fuse/lib/mock-api/mock-api.types";
+import { HttpRequest } from '@angular/common/http';
+import { Observable, of, take, throwError } from 'rxjs';
+import { FuseMockApiReplyCallback } from '@fuse/lib/mock-api/mock-api.types';
 
 export class FuseMockApiHandler {
 	request!: HttpRequest<any>;
@@ -26,17 +26,17 @@ export class FuseMockApiHandler {
 	get response(): Observable<any> {
 		// If the execution limit has been reached, throw an error
 		if (this._replyCount > 0 && this._replyCount <= this._replied) {
-			return throwError(() => "Execution limit has been reached!");
+			return throwError(() => 'Execution limit has been reached!');
 		}
 
 		// If the response callback has not been set, throw an error
 		if (!this._reply) {
-			return throwError(() => "Response callback function does not exist!");
+			return throwError(() => 'Response callback function does not exist!');
 		}
 
 		// If the request has not been set, throw an error
 		if (!this.request) {
-			return throwError(() => "Request does not exist!");
+			return throwError(() => 'Request does not exist!');
 		}
 
 		// Increase the replied count

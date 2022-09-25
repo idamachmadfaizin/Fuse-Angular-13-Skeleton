@@ -1,15 +1,15 @@
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { RouterTestingModule } from "@angular/router/testing";
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import {
 	HttpClientTestingModule,
 	HttpTestingController,
-} from "@angular/common/http/testing";
-import { SharedModule } from "app/shared/shared.module";
+} from '@angular/common/http/testing';
+import { SharedModule } from 'app/shared/shared.module';
 
-import { DashboardComponent } from "./dashboard.component";
+import { DashboardComponent } from './dashboard.component';
 
-describe("DashboardComponent", () => {
+describe('DashboardComponent', () => {
 	let component: DashboardComponent;
 	let fixture: ComponentFixture<DashboardComponent>;
 
@@ -26,7 +26,7 @@ describe("DashboardComponent", () => {
 		fixture.detectChanges();
 	});
 
-	it("should create", () => {
+	it('should create', () => {
 		expect(component).toBeTruthy();
 	});
 });

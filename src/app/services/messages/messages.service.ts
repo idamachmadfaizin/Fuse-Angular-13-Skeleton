@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { map, Observable, ReplaySubject, switchMap, take, tap } from "rxjs";
-import { Message } from "app/interface/messages/messages.types";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { map, Observable, ReplaySubject, switchMap, take, tap } from 'rxjs';
+import { Message } from 'app/interface/messages/messages.types';
 
 @Injectable({
-	providedIn: "root",
+	providedIn: 'root',
 })
 export class MessagesService {
 	private _messages: ReplaySubject<Message[]> = new ReplaySubject<Message[]>(
@@ -35,7 +35,7 @@ export class MessagesService {
 	 * Get all messages
 	 */
 	getAll(): Observable<Message[]> {
-		return this._httpClient.get<Message[]>("api/common/messages").pipe(
+		return this._httpClient.get<Message[]>('api/common/messages').pipe(
 			tap(messages => {
 				this._messages.next(messages);
 			})
@@ -52,7 +52,7 @@ export class MessagesService {
 			take(1),
 			switchMap(messages =>
 				this._httpClient
-					.post<Message>("api/common/messages", { message })
+					.post<Message>('api/common/messages', { message })
 					.pipe(
 						map(newMessage => {
 							// Update the messages with the new message
@@ -77,7 +77,7 @@ export class MessagesService {
 			take(1),
 			switchMap(messages =>
 				this._httpClient
-					.patch<Message>("api/common/messages", {
+					.patch<Message>('api/common/messages', {
 						id,
 						message,
 					})
@@ -110,7 +110,7 @@ export class MessagesService {
 			take(1),
 			switchMap(messages =>
 				this._httpClient
-					.delete<boolean>("api/common/messages", { params: { id } })
+					.delete<boolean>('api/common/messages', { params: { id } })
 					.pipe(
 						map((isDeleted: boolean) => {
 							// Find the index of the deleted message
@@ -138,7 +138,7 @@ export class MessagesService {
 			take(1),
 			switchMap(messages =>
 				this._httpClient
-					.get<boolean>("api/common/messages/mark-all-as-read")
+					.get<boolean>('api/common/messages/mark-all-as-read')
 					.pipe(
 						map((isUpdated: boolean) => {
 							// Go through all messages and set them as read

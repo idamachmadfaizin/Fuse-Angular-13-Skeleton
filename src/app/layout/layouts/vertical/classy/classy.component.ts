@@ -6,23 +6,23 @@ import {
 	OnDestroy,
 	OnInit,
 	ViewEncapsulation,
-} from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
-import { BooleanInput } from "@angular/cdk/coercion";
-import { Subject, takeUntil } from "rxjs";
-import { FuseMediaWatcherService } from "@fuse/services/media-watcher";
+} from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BooleanInput } from '@angular/cdk/coercion';
+import { Subject, takeUntil } from 'rxjs';
+import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
 import {
 	FuseNavigationService,
 	FuseVerticalNavigationComponent,
-} from "@fuse/components/navigation";
-import { Navigation } from "app/interface/navigation/navigation.types";
-import { NavigationService } from "app/services/navigation/navigation.service";
-import { User } from "app/interface/user/user.types";
-import { UserService } from "app/services/user/user.service";
+} from '@fuse/components/navigation';
+import { Navigation } from 'app/interface/navigation/navigation.types';
+import { NavigationService } from 'app/services/navigation/navigation.service';
+import { User } from 'app/interface/user/user.types';
+import { UserService } from 'app/services/user/user.service';
 
 @Component({
-	selector: "classy-layout",
-	templateUrl: "./classy.component.html",
+	selector: 'classy-layout',
+	templateUrl: './classy.component.html',
 	encapsulation: ViewEncapsulation.None,
 })
 export class ClassyLayoutComponent implements OnInit, OnDestroy {
@@ -87,7 +87,7 @@ export class ClassyLayoutComponent implements OnInit, OnDestroy {
 			.pipe(takeUntil(this._unsubscribeAll))
 			.subscribe(({ matchingAliases }) => {
 				// Check if the screen is small
-				this.isScreenSmall = !matchingAliases.includes("md");
+				this.isScreenSmall = !matchingAliases.includes('md');
 			});
 	}
 
@@ -146,6 +146,6 @@ export class ClassyLayoutComponent implements OnInit, OnDestroy {
 	 * Sign out
 	 */
 	signOut(): void {
-		this._router.navigate(["/sign-out"]);
+		this._router.navigate(['/sign-out']);
 	}
 }

@@ -8,24 +8,24 @@ import {
 	ViewChild,
 	ViewContainerRef,
 	ViewEncapsulation,
-} from "@angular/core";
-import { Overlay, OverlayRef } from "@angular/cdk/overlay";
-import { TemplatePortal } from "@angular/cdk/portal";
-import { MatButton } from "@angular/material/button";
-import { Subject, takeUntil } from "rxjs";
-import { Message } from "app/interface/messages/messages.types";
-import { MessagesService } from "app/services/messages/messages.service";
+} from '@angular/core';
+import { Overlay, OverlayRef } from '@angular/cdk/overlay';
+import { TemplatePortal } from '@angular/cdk/portal';
+import { MatButton } from '@angular/material/button';
+import { Subject, takeUntil } from 'rxjs';
+import { Message } from 'app/interface/messages/messages.types';
+import { MessagesService } from 'app/services/messages/messages.service';
 
 @Component({
-	selector: "messages",
-	templateUrl: "./messages.component.html",
+	selector: 'messages',
+	templateUrl: './messages.component.html',
 	encapsulation: ViewEncapsulation.None,
 	changeDetection: ChangeDetectionStrategy.OnPush,
-	exportAs: "messages",
+	exportAs: 'messages',
 })
 export class MessagesComponent implements OnInit, OnDestroy {
-	@ViewChild("messagesOrigin") private _messagesOrigin: MatButton;
-	@ViewChild("messagesPanel") private _messagesPanel: TemplateRef<any>;
+	@ViewChild('messagesOrigin') private _messagesOrigin: MatButton;
+	@ViewChild('messagesPanel') private _messagesPanel: TemplateRef<any>;
 
 	messages: Message[];
 	unreadCount: number = 0;
@@ -158,7 +158,7 @@ export class MessagesComponent implements OnInit, OnDestroy {
 		// Create the overlay
 		this._overlayRef = this._overlay.create({
 			hasBackdrop: true,
-			backdropClass: "fuse-backdrop-on-mobile",
+			backdropClass: 'fuse-backdrop-on-mobile',
 			scrollStrategy: this._overlay.scrollStrategies.block(),
 			positionStrategy: this._overlay
 				.position()
@@ -167,28 +167,28 @@ export class MessagesComponent implements OnInit, OnDestroy {
 				.withPush(true)
 				.withPositions([
 					{
-						originX: "start",
-						originY: "bottom",
-						overlayX: "start",
-						overlayY: "top",
+						originX: 'start',
+						originY: 'bottom',
+						overlayX: 'start',
+						overlayY: 'top',
 					},
 					{
-						originX: "start",
-						originY: "top",
-						overlayX: "start",
-						overlayY: "bottom",
+						originX: 'start',
+						originY: 'top',
+						overlayX: 'start',
+						overlayY: 'bottom',
 					},
 					{
-						originX: "end",
-						originY: "bottom",
-						overlayX: "end",
-						overlayY: "top",
+						originX: 'end',
+						originY: 'bottom',
+						overlayX: 'end',
+						overlayY: 'top',
 					},
 					{
-						originX: "end",
-						originY: "top",
-						overlayX: "end",
-						overlayY: "bottom",
+						originX: 'end',
+						originY: 'top',
+						overlayX: 'end',
+						overlayY: 'bottom',
 					},
 				]),
 		});

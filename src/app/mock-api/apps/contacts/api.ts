@@ -1,15 +1,15 @@
-import { Injectable } from "@angular/core";
-import { from, map } from "rxjs";
-import { assign, cloneDeep } from "lodash-es";
-import { FuseMockApiService, FuseMockApiUtils } from "@fuse/lib/mock-api";
+import { Injectable } from '@angular/core';
+import { from, map } from 'rxjs';
+import { assign, cloneDeep } from 'lodash-es';
+import { FuseMockApiService, FuseMockApiUtils } from '@fuse/lib/mock-api';
 import {
 	contacts as contactsData,
 	countries as countriesData,
 	tags as tagsData,
-} from "app/mock-api/apps/contacts/data";
+} from 'app/mock-api/apps/contacts/data';
 
 @Injectable({
-	providedIn: "root",
+	providedIn: 'root',
 })
 export class ContactsMockApi {
 	private _contacts: any[] = contactsData;
@@ -35,7 +35,7 @@ export class ContactsMockApi {
 		// -----------------------------------------------------------------------------------------------------
 		// @ Contacts - GET
 		// -----------------------------------------------------------------------------------------------------
-		this._fuseMockApiService.onGet("api/apps/contacts/all").reply(() => {
+		this._fuseMockApiService.onGet('api/apps/contacts/all').reply(() => {
 			// Clone the contacts
 			const contacts = cloneDeep(this._contacts);
 
@@ -50,10 +50,10 @@ export class ContactsMockApi {
 		// @ Contacts Search - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/contacts/search")
+			.onGet('api/apps/contacts/search')
 			.reply(({ request }) => {
 				// Get the search query
-				const query = request.params.get("query");
+				const query = request.params.get('query');
 
 				// Clone the contacts
 				let contacts = cloneDeep(this._contacts);
@@ -79,10 +79,10 @@ export class ContactsMockApi {
 		// @ Contact - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/contacts/contact")
+			.onGet('api/apps/contacts/contact')
 			.reply(({ request }) => {
 				// Get the id from the params
-				const id = request.params.get("id");
+				const id = request.params.get('id');
 
 				// Clone the contacts
 				const contacts = cloneDeep(this._contacts);
@@ -97,17 +97,17 @@ export class ContactsMockApi {
 		// -----------------------------------------------------------------------------------------------------
 		// @ Contact - POST
 		// -----------------------------------------------------------------------------------------------------
-		this._fuseMockApiService.onPost("api/apps/contacts/contact").reply(() => {
+		this._fuseMockApiService.onPost('api/apps/contacts/contact').reply(() => {
 			// Generate a new contact
 			const newContact = {
 				id: FuseMockApiUtils.guid(),
 				avatar: null,
-				name: "New Contact",
+				name: 'New Contact',
 				emails: [],
 				phoneNumbers: [],
 				job: {
-					title: "",
-					company: "",
+					title: '',
+					company: '',
 				},
 				birthday: null,
 				address: null,
@@ -126,7 +126,7 @@ export class ContactsMockApi {
 		// @ Contact - PATCH
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPatch("api/apps/contacts/contact")
+			.onPatch('api/apps/contacts/contact')
 			.reply(({ request }) => {
 				// Get the id and contact
 				const id = request.body.id;
@@ -154,10 +154,10 @@ export class ContactsMockApi {
 		// @ Contact - DELETE
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onDelete("api/apps/contacts/contact")
+			.onDelete('api/apps/contacts/contact')
 			.reply(({ request }) => {
 				// Get the id
-				const id = request.params.get("id");
+				const id = request.params.get('id');
 
 				// Find the contact and delete it
 				this._contacts.forEach((item, index) => {
@@ -174,21 +174,21 @@ export class ContactsMockApi {
 		// @ Countries - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/contacts/countries")
+			.onGet('api/apps/contacts/countries')
 			.reply(() => [200, cloneDeep(this._countries)]);
 
 		// -----------------------------------------------------------------------------------------------------
 		// @ Tags - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/contacts/tags")
+			.onGet('api/apps/contacts/tags')
 			.reply(() => [200, cloneDeep(this._tags)]);
 
 		// -----------------------------------------------------------------------------------------------------
 		// @ Tags - POST
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPost("api/apps/contacts/tag")
+			.onPost('api/apps/contacts/tag')
 			.reply(({ request }) => {
 				// Get the tag
 				const newTag = cloneDeep(request.body.tag);
@@ -207,7 +207,7 @@ export class ContactsMockApi {
 		// @ Tags - PATCH
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPatch("api/apps/contacts/tag")
+			.onPatch('api/apps/contacts/tag')
 			.reply(({ request }) => {
 				// Get the id and tag
 				const id = request.body.id;
@@ -235,10 +235,10 @@ export class ContactsMockApi {
 		// @ Tag - DELETE
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onDelete("api/apps/contacts/tag")
+			.onDelete('api/apps/contacts/tag')
 			.reply(({ request }) => {
 				// Get the id
-				const id = request.params.get("id");
+				const id = request.params.get('id');
 
 				// Find the tag and delete it
 				this._tags.forEach((item, index) => {
@@ -290,7 +290,7 @@ export class ContactsMockApi {
 				reader.readAsDataURL(file);
 			});
 		this._fuseMockApiService
-			.onPost("api/apps/contacts/avatar")
+			.onPost('api/apps/contacts/avatar')
 			.reply(({ request }) => {
 				// Get the id and avatar
 				const id = request.body.id;

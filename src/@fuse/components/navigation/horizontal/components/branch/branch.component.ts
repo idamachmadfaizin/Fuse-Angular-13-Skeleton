@@ -6,17 +6,17 @@ import {
 	OnDestroy,
 	OnInit,
 	ViewChild,
-} from "@angular/core";
-import { BooleanInput } from "@angular/cdk/coercion";
-import { MatMenu } from "@angular/material/menu";
-import { Subject, takeUntil } from "rxjs";
-import { FuseHorizontalNavigationComponent } from "@fuse/components/navigation/horizontal/horizontal.component";
-import { FuseNavigationService } from "@fuse/components/navigation/navigation.service";
-import { FuseNavigationItem } from "@fuse/components/navigation/navigation.types";
+} from '@angular/core';
+import { BooleanInput } from '@angular/cdk/coercion';
+import { MatMenu } from '@angular/material/menu';
+import { Subject, takeUntil } from 'rxjs';
+import { FuseHorizontalNavigationComponent } from '@fuse/components/navigation/horizontal/horizontal.component';
+import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
+import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
 
 @Component({
-	selector: "fuse-horizontal-navigation-branch-item",
-	templateUrl: "./branch.component.html",
+	selector: 'fuse-horizontal-navigation-branch-item',
+	templateUrl: './branch.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FuseHorizontalNavigationBranchItemComponent
@@ -29,7 +29,7 @@ export class FuseHorizontalNavigationBranchItemComponent
 	@Input() child: boolean = false;
 	@Input() item: FuseNavigationItem;
 	@Input() name: string;
-	@ViewChild("matMenu", { static: true }) matMenu: MatMenu;
+	@ViewChild('matMenu', { static: true }) matMenu: MatMenu;
 
 	private _fuseHorizontalNavigationComponent: FuseHorizontalNavigationComponent;
 	private _unsubscribeAll: Subject<any> = new Subject<any>();

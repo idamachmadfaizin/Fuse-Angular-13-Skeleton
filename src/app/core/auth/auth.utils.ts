@@ -23,7 +23,7 @@ export class AuthUtils {
 	 */
 	static isTokenExpired(token: string, offsetSeconds?: number): boolean {
 		// Return if there is no token
-		if (!token || token === "") {
+		if (!token || token === '') {
 			return true;
 		}
 
@@ -53,10 +53,10 @@ export class AuthUtils {
 	 */
 	private static _b64decode(str: string): string {
 		const chars =
-			"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
-		let output = "";
+			'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+		let output = '';
 
-		str = String(str).replace(/=+$/, "");
+		str = String(str).replace(/=+$/, '');
 
 		if (str.length % 4 === 1) {
 			throw new Error(
@@ -98,9 +98,9 @@ export class AuthUtils {
 			Array.prototype.map
 				.call(
 					this._b64decode(str),
-					(c: any) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2)
+					(c: any) => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
 				)
-				.join("")
+				.join('')
 		);
 	}
 
@@ -111,21 +111,21 @@ export class AuthUtils {
 	 * @private
 	 */
 	private static _urlBase64Decode(str: string): string {
-		let output = str.replace(/-/g, "+").replace(/_/g, "/");
+		let output = str.replace(/-/g, '+').replace(/_/g, '/');
 		switch (output.length % 4) {
 			case 0: {
 				break;
 			}
 			case 2: {
-				output += "==";
+				output += '==';
 				break;
 			}
 			case 3: {
-				output += "=";
+				output += '=';
 				break;
 			}
 			default: {
-				throw Error("Illegal base64url string!");
+				throw Error('Illegal base64url string!');
 			}
 		}
 		return this._b64DecodeUnicode(output);
@@ -144,7 +144,7 @@ export class AuthUtils {
 		}
 
 		// Split the token
-		const parts = token.split(".");
+		const parts = token.split('.');
 
 		if (parts.length !== 3) {
 			throw new Error(
@@ -156,7 +156,7 @@ export class AuthUtils {
 		const decoded = this._urlBase64Decode(parts[1]);
 
 		if (!decoded) {
-			throw new Error("Cannot decode the token.");
+			throw new Error('Cannot decode the token.');
 		}
 
 		return JSON.parse(decoded);
@@ -173,7 +173,7 @@ export class AuthUtils {
 		const decodedToken = this._decodeToken(token);
 
 		// Return if the decodedToken doesn't have an 'exp' field
-		if (!decodedToken.hasOwnProperty("exp")) {
+		if (!decodedToken.hasOwnProperty('exp')) {
 			return null;
 		}
 

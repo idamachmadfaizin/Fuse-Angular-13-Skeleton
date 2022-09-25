@@ -12,27 +12,27 @@ import {
 	Renderer2,
 	SimpleChanges,
 	ViewEncapsulation,
-} from "@angular/core";
+} from '@angular/core';
 import {
 	animate,
 	AnimationBuilder,
 	AnimationPlayer,
 	style,
-} from "@angular/animations";
+} from '@angular/animations';
 import {
 	FuseDrawerMode,
 	FuseDrawerPosition,
-} from "@fuse/components/drawer/drawer.types";
-import { FuseDrawerService } from "@fuse/components/drawer/drawer.service";
-import { FuseUtilsService } from "@fuse/services/utils/utils.service";
-import { BooleanInput, coerceBooleanProperty } from "@angular/cdk/coercion";
+} from '@fuse/components/drawer/drawer.types';
+import { FuseDrawerService } from '@fuse/components/drawer/drawer.service';
+import { FuseUtilsService } from '@fuse/services/utils/utils.service';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Component({
-	selector: "fuse-drawer",
-	templateUrl: "./drawer.component.html",
-	styleUrls: ["./drawer.component.scss"],
+	selector: 'fuse-drawer',
+	templateUrl: './drawer.component.html',
+	styleUrls: ['./drawer.component.scss'],
 	encapsulation: ViewEncapsulation.None,
-	exportAs: "fuseDrawer",
+	exportAs: 'fuseDrawer',
 })
 export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy {
 	/* eslint-disable @typescript-eslint/naming-convention */
@@ -42,10 +42,10 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy {
 	/* eslint-enable @typescript-eslint/naming-convention */
 
 	@Input() fixed: boolean = false;
-	@Input() mode: FuseDrawerMode = "side";
+	@Input() mode: FuseDrawerMode = 'side';
 	@Input() name: string = this._fuseUtilsService.randomId();
 	@Input() opened: boolean = false;
-	@Input() position: FuseDrawerPosition = "left";
+	@Input() position: FuseDrawerPosition = 'left';
 	@Input() transparentOverlay: boolean = false;
 	@Output() readonly fixedChanged: EventEmitter<boolean> =
 		new EventEmitter<boolean>();
@@ -79,13 +79,13 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy {
 	/**
 	 * Host binding for component classes
 	 */
-	@HostBinding("class") get classList(): any {
+	@HostBinding('class') get classList(): any {
 		return {
-			"fuse-drawer-animations-enabled": this._animationsEnabled,
-			"fuse-drawer-fixed": this.fixed,
-			"fuse-drawer-hover": this._hovered,
+			'fuse-drawer-animations-enabled': this._animationsEnabled,
+			'fuse-drawer-fixed': this.fixed,
+			'fuse-drawer-hover': this._hovered,
 			[`fuse-drawer-mode-${this.mode}`]: true,
-			"fuse-drawer-opened": this.opened,
+			'fuse-drawer-opened': this.opened,
 			[`fuse-drawer-position-${this.position}`]: true,
 		};
 	}
@@ -93,9 +93,9 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy {
 	/**
 	 * Host binding for component inline styles
 	 */
-	@HostBinding("style") get styleList(): any {
+	@HostBinding('style') get styleList(): any {
 		return {
-			visibility: this.opened ? "visible" : "hidden",
+			visibility: this.opened ? 'visible' : 'hidden',
 		};
 	}
 
@@ -108,7 +108,7 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy {
 	 *
 	 * @private
 	 */
-	@HostListener("mouseenter")
+	@HostListener('mouseenter')
 	private _onMouseenter(): void {
 		// Enable the animations
 		this._enableAnimations();
@@ -122,7 +122,7 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy {
 	 *
 	 * @private
 	 */
-	@HostListener("mouseleave")
+	@HostListener('mouseleave')
 	private _onMouseleave(): void {
 		// Enable the animations
 		this._enableAnimations();
@@ -142,7 +142,7 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy {
 	 */
 	ngOnChanges(changes: SimpleChanges): void {
 		// Fixed
-		if ("fixed" in changes) {
+		if ('fixed' in changes) {
 			// Coerce the value to a boolean
 			this.fixed = coerceBooleanProperty(changes.fixed.currentValue);
 
@@ -151,7 +151,7 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy {
 		}
 
 		// Mode
-		if ("mode" in changes) {
+		if ('mode' in changes) {
 			// Get the previous and current values
 			const previousMode = changes.mode.previousValue;
 			const currentMode = changes.mode.currentValue;
@@ -160,13 +160,13 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy {
 			this._disableAnimations();
 
 			// If the mode changes: 'over -> side'
-			if (previousMode === "over" && currentMode === "side") {
+			if (previousMode === 'over' && currentMode === 'side') {
 				// Hide the overlay
 				this._hideOverlay();
 			}
 
 			// If the mode changes: 'side -> over'
-			if (previousMode === "side" && currentMode === "over") {
+			if (previousMode === 'side' && currentMode === 'over') {
 				// If the drawer is opened
 				if (this.opened) {
 					// Show the overlay
@@ -186,7 +186,7 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy {
 		}
 
 		// Opened
-		if ("opened" in changes) {
+		if ('opened' in changes) {
 			// Coerce the value to a boolean
 			const open = coerceBooleanProperty(changes.opened.currentValue);
 
@@ -195,13 +195,13 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy {
 		}
 
 		// Position
-		if ("position" in changes) {
+		if ('position' in changes) {
 			// Execute the observable
 			this.positionChanged.next(this.position);
 		}
 
 		// Transparent overlay
-		if ("transparentOverlay" in changes) {
+		if ('transparentOverlay' in changes) {
 			// Coerce the value to a boolean
 			this.transparentOverlay = coerceBooleanProperty(
 				changes.transparentOverlay.currentValue
@@ -312,7 +312,7 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy {
 	 */
 	private _showOverlay(): void {
 		// Create the backdrop element
-		this._overlay = this._renderer2.createElement("div");
+		this._overlay = this._renderer2.createElement('div');
 
 		// Return if overlay couldn't be create for some reason
 		if (!this._overlay) {
@@ -320,16 +320,16 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy {
 		}
 
 		// Add a class to the backdrop element
-		this._overlay.classList.add("fuse-drawer-overlay");
+		this._overlay.classList.add('fuse-drawer-overlay');
 
 		// Add a class depending on the fixed option
 		if (this.fixed) {
-			this._overlay.classList.add("fuse-drawer-overlay-fixed");
+			this._overlay.classList.add('fuse-drawer-overlay-fixed');
 		}
 
 		// Add a class depending on the transparentOverlay option
 		if (this.transparentOverlay) {
-			this._overlay.classList.add("fuse-drawer-overlay-transparent");
+			this._overlay.classList.add('fuse-drawer-overlay-transparent');
 		}
 
 		// Append the backdrop to the parent of the drawer
@@ -343,7 +343,7 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy {
 			.build([
 				style({ opacity: 0 }),
 				animate(
-					"300ms cubic-bezier(0.25, 0.8, 0.25, 1)",
+					'300ms cubic-bezier(0.25, 0.8, 0.25, 1)',
 					style({ opacity: 1 })
 				),
 			])
@@ -360,7 +360,7 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy {
 		this._player.play();
 
 		// Add an event listener to the overlay
-		this._overlay.addEventListener("click", () => {
+		this._overlay.addEventListener('click', () => {
 			this.close();
 		});
 	}
@@ -379,7 +379,7 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy {
 		this._player = this._animationBuilder
 			.build([
 				animate(
-					"300ms cubic-bezier(0.25, 0.8, 0.25, 1)",
+					'300ms cubic-bezier(0.25, 0.8, 0.25, 1)',
 					style({ opacity: 0 })
 				),
 			])
@@ -417,7 +417,7 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy {
 		this._enableAnimations();
 
 		// If the mode is 'over'
-		if (this.mode === "over") {
+		if (this.mode === 'over') {
 			// If the drawer opens, show the overlay
 			if (open) {
 				this._showOverlay();

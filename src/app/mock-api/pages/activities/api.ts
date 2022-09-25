@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
-import { cloneDeep } from "lodash-es";
-import { FuseMockApiService } from "@fuse/lib/mock-api";
-import { activities as activitiesData } from "app/mock-api/pages/activities/data";
+import { Injectable } from '@angular/core';
+import { cloneDeep } from 'lodash-es';
+import { FuseMockApiService } from '@fuse/lib/mock-api';
+import { activities as activitiesData } from 'app/mock-api/pages/activities/data';
 
 @Injectable({
-	providedIn: "root",
+	providedIn: 'root',
 })
 export class ActivitiesMockApi {
 	private _activities: any = activitiesData;
@@ -29,7 +29,7 @@ export class ActivitiesMockApi {
 		// @ Activities - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/pages/activities")
+			.onGet('api/pages/activities')
 			.reply(() => [200, cloneDeep(this._activities)]);
 	}
 }

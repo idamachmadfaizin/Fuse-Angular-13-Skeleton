@@ -5,15 +5,15 @@ import {
 	Input,
 	OnDestroy,
 	OnInit,
-} from "@angular/core";
-import { Subject, takeUntil } from "rxjs";
-import { FuseVerticalNavigationComponent } from "@fuse/components/navigation/vertical/vertical.component";
-import { FuseNavigationService } from "@fuse/components/navigation/navigation.service";
-import { FuseNavigationItem } from "@fuse/components/navigation/navigation.types";
+} from '@angular/core';
+import { Subject, takeUntil } from 'rxjs';
+import { FuseVerticalNavigationComponent } from '@fuse/components/navigation/vertical/vertical.component';
+import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
+import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
 
 @Component({
-	selector: "fuse-vertical-navigation-divider-item",
-	templateUrl: "./divider.component.html",
+	selector: 'fuse-vertical-navigation-divider-item',
+	templateUrl: './divider.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FuseVerticalNavigationDividerItemComponent

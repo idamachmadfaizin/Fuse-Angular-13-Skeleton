@@ -5,15 +5,15 @@ import {
 	Input,
 	OnDestroy,
 	OnInit,
-} from "@angular/core";
-import { Subject, takeUntil } from "rxjs";
-import { FuseHorizontalNavigationComponent } from "@fuse/components/navigation/horizontal/horizontal.component";
-import { FuseNavigationService } from "@fuse/components/navigation/navigation.service";
-import { FuseNavigationItem } from "@fuse/components/navigation/navigation.types";
+} from '@angular/core';
+import { Subject, takeUntil } from 'rxjs';
+import { FuseHorizontalNavigationComponent } from '@fuse/components/navigation/horizontal/horizontal.component';
+import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
+import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
 
 @Component({
-	selector: "fuse-horizontal-navigation-spacer-item",
-	templateUrl: "./spacer.component.html",
+	selector: 'fuse-horizontal-navigation-spacer-item',
+	templateUrl: './spacer.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FuseHorizontalNavigationSpacerItemComponent

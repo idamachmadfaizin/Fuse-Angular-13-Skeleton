@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import { BreakpointObserver, BreakpointState } from "@angular/cdk/layout";
-import { map, Observable, ReplaySubject, switchMap } from "rxjs";
-import { fromPairs } from "lodash-es";
-import { FuseConfigService } from "@fuse/services/config";
+import { Injectable } from '@angular/core';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import { map, Observable, ReplaySubject, switchMap } from 'rxjs';
+import { fromPairs } from 'lodash-es';
+import { FuseConfigService } from '@fuse/services/config';
 
 @Injectable()
 export class FuseMediaWatcherService {

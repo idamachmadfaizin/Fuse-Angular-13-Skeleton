@@ -1,13 +1,13 @@
-const chroma = require("chroma-js");
-const _ = require("lodash");
-const path = require("path");
-const colors = require("tailwindcss/colors");
-const plugin = require("tailwindcss/plugin");
+const chroma = require('chroma-js');
+const _ = require('lodash');
+const path = require('path');
+const colors = require('tailwindcss/colors');
+const plugin = require('tailwindcss/plugin');
 const flattenColorPalette =
-	require("tailwindcss/lib/util/flattenColorPalette").default;
+	require('tailwindcss/lib/util/flattenColorPalette').default;
 const generateContrasts = require(path.resolve(
 	__dirname,
-	"../utils/generate-contrasts"
+	'../utils/generate-contrasts'
 ));
 
 // -----------------------------------------------------------------------------------------------------
@@ -25,13 +25,13 @@ const normalizeTheme = theme => {
 			_.omitBy(
 				theme,
 				(palette, paletteName) =>
-					paletteName.startsWith("on") || _.isEmpty(palette)
+					paletteName.startsWith('on') || _.isEmpty(palette)
 			),
 			(palette, paletteName) => [
 				paletteName,
 				{
 					...palette,
-					DEFAULT: palette["DEFAULT"] || palette[500],
+					DEFAULT: palette['DEFAULT'] || palette[500],
 				},
 			]
 		)
@@ -116,8 +116,8 @@ const theming = plugin.withOptions(
 			// -----------------------------------------------------------------------------------------------------
 			const mapVariableColors = _.fromPairs(
 				_.map(options.themes, (theme, themeName) => [
-					themeName === "default"
-						? "body, .theme-default"
+					themeName === 'default'
+						? 'body, .theme-default'
 						: `.theme-${e(themeName)}`,
 					_.fromPairs(
 						_.flatten(
@@ -153,7 +153,7 @@ const theming = plugin.withOptions(
 									[`--fuse-${e(key)}`, value],
 									[
 										`--fuse-${e(key)}-rgb`,
-										chroma(value).rgb().join(","),
+										chroma(value).rgb().join(','),
 									],
 								]
 							)
@@ -167,16 +167,16 @@ const theming = plugin.withOptions(
 			// -----------------------------------------------------------------------------------------------------
 			// @ Generate scheme based css custom properties and utility classes
 			// -----------------------------------------------------------------------------------------------------
-			const schemeCustomProps = _.map(["light", "dark"], colorScheme => {
-				const isDark = colorScheme === "dark";
+			const schemeCustomProps = _.map(['light', 'dark'], colorScheme => {
+				const isDark = colorScheme === 'dark';
 				const background = theme(
 					`fuse.customProps.background.${colorScheme}`
 				);
 				const foreground = theme(
 					`fuse.customProps.foreground.${colorScheme}`
 				);
-				const lightSchemeSelectors = "body.light, .light, .dark .light";
-				const darkSchemeSelectors = "body.dark, .dark, .light .dark";
+				const lightSchemeSelectors = 'body.light, .light, .dark .light';
+				const darkSchemeSelectors = 'body.dark, .dark, .light .dark';
 
 				return {
 					[isDark ? darkSchemeSelectors : lightSchemeSelectors]: {
@@ -202,7 +202,7 @@ const theming = plugin.withOptions(
 						 *
 						 * It's easier to understand and remember like this.
 						 */
-						...(!isDark ? { "--is-dark": "false" } : {}),
+						...(!isDark ? { '--is-dark': 'false' } : {}),
 
 						// Generate custom properties from customProps
 						..._.fromPairs(
@@ -211,7 +211,7 @@ const theming = plugin.withOptions(
 									[`--fuse-${e(key)}`, value],
 									[
 										`--fuse-${e(key)}-rgb`,
-										chroma(value).rgb().join(","),
+										chroma(value).rgb().join(','),
 									],
 								])
 							)
@@ -222,7 +222,7 @@ const theming = plugin.withOptions(
 									[`--fuse-${e(key)}`, value],
 									[
 										`--fuse-${e(key)}-rgb`,
-										chroma(value).rgb().join(","),
+										chroma(value).rgb().join(','),
 									],
 								])
 							)
@@ -249,42 +249,42 @@ const theming = plugin.withOptions(
 					customProps: {
 						background: {
 							light: {
-								"bg-app-bar": "#FFFFFF",
-								"bg-card": "#FFFFFF",
-								"bg-default": colors.slate[100],
-								"bg-dialog": "#FFFFFF",
-								"bg-hover": chroma(colors.slate[400]).alpha(0.12).css(),
-								"bg-status-bar": colors.slate[300],
+								'bg-app-bar': '#FFFFFF',
+								'bg-card': '#FFFFFF',
+								'bg-default': colors.slate[100],
+								'bg-dialog': '#FFFFFF',
+								'bg-hover': chroma(colors.slate[400]).alpha(0.12).css(),
+								'bg-status-bar': colors.slate[300],
 							},
 							dark: {
-								"bg-app-bar": colors.slate[900],
-								"bg-card": colors.slate[800],
-								"bg-default": colors.slate[900],
-								"bg-dialog": colors.slate[800],
-								"bg-hover": "rgba(255, 255, 255, 0.05)",
-								"bg-status-bar": colors.slate[900],
+								'bg-app-bar': colors.slate[900],
+								'bg-card': colors.slate[800],
+								'bg-default': colors.slate[900],
+								'bg-dialog': colors.slate[800],
+								'bg-hover': 'rgba(255, 255, 255, 0.05)',
+								'bg-status-bar': colors.slate[900],
 							},
 						},
 						foreground: {
 							light: {
-								"text-default": colors.slate[800],
-								"text-secondary": colors.slate[500],
-								"text-hint": colors.slate[400],
-								"text-disabled": colors.slate[400],
+								'text-default': colors.slate[800],
+								'text-secondary': colors.slate[500],
+								'text-hint': colors.slate[400],
+								'text-disabled': colors.slate[400],
 								border: colors.slate[200],
 								divider: colors.slate[200],
 								icon: colors.slate[500],
-								"mat-icon": colors.slate[500],
+								'mat-icon': colors.slate[500],
 							},
 							dark: {
-								"text-default": "#FFFFFF",
-								"text-secondary": colors.slate[400],
-								"text-hint": colors.slate[500],
-								"text-disabled": colors.slate[600],
+								'text-default': '#FFFFFF',
+								'text-secondary': colors.slate[400],
+								'text-hint': colors.slate[500],
+								'text-disabled': colors.slate[600],
 								border: chroma(colors.slate[100]).alpha(0.12).css(),
 								divider: chroma(colors.slate[100]).alpha(0.12).css(),
 								icon: colors.slate[400],
-								"mat-icon": colors.slate[400],
+								'mat-icon': colors.slate[400],
 							},
 						},
 					},

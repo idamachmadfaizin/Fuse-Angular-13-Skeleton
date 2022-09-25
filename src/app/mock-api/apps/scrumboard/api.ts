@@ -1,16 +1,16 @@
-import { Injectable } from "@angular/core";
-import { assign, cloneDeep } from "lodash-es";
-import { FuseMockApiService, FuseMockApiUtils } from "@fuse/lib/mock-api";
+import { Injectable } from '@angular/core';
+import { assign, cloneDeep } from 'lodash-es';
+import { FuseMockApiService, FuseMockApiUtils } from '@fuse/lib/mock-api';
 import {
 	boards as boardsData,
 	cards as cardsData,
 	labels as labelsData,
 	lists as listsData,
 	members as membersData,
-} from "app/mock-api/apps/scrumboard/data";
+} from 'app/mock-api/apps/scrumboard/data';
 
 @Injectable({
-	providedIn: "root",
+	providedIn: 'root',
 })
 export class ScrumboardMockApi {
 	// Private
@@ -40,7 +40,7 @@ export class ScrumboardMockApi {
 		// @ Boards - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/scrumboard/boards")
+			.onGet('api/apps/scrumboard/boards')
 			.reply(({ request }) => {
 				// Clone the boards
 				let boards = cloneDeep(this._boards);
@@ -60,10 +60,10 @@ export class ScrumboardMockApi {
 		// @ Board - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/scrumboard/board")
+			.onGet('api/apps/scrumboard/board')
 			.reply(({ request }) => {
 				// Get the id
-				const id = request.params.get("id");
+				const id = request.params.get('id');
 
 				// Find the board
 				const board = this._boards.find(item => item.id === id);
@@ -101,7 +101,7 @@ export class ScrumboardMockApi {
 		// @ List - POST
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPost("api/apps/scrumboard/board/list")
+			.onPost('api/apps/scrumboard/board/list')
 			.reply(({ request }) => {
 				// Get the list
 				const newList = cloneDeep(request.body.list);
@@ -119,7 +119,7 @@ export class ScrumboardMockApi {
 		// @ List - PATCH
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPatch("api/apps/scrumboard/board/list")
+			.onPatch('api/apps/scrumboard/board/list')
 			.reply(({ request }) => {
 				// Get the list
 				const list = cloneDeep(request.body.list);
@@ -145,7 +145,7 @@ export class ScrumboardMockApi {
 		// @ Lists - PATCH
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPatch("api/apps/scrumboard/board/lists")
+			.onPatch('api/apps/scrumboard/board/lists')
 			.reply(({ request }) => {
 				// Get the lists
 				const lists = cloneDeep(request.body.lists);
@@ -172,10 +172,10 @@ export class ScrumboardMockApi {
 		// @ List - DELETE
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onDelete("api/apps/scrumboard/board/list")
+			.onDelete('api/apps/scrumboard/board/list')
 			.reply(({ request }) => {
 				// Get the id
-				const id = request.params.get("id");
+				const id = request.params.get('id');
 
 				// Find the list and delete it
 				const index = this._lists.findIndex(item => item.id === id);
@@ -191,7 +191,7 @@ export class ScrumboardMockApi {
 		// @ Card - PUT
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPut("api/apps/scrumboard/board/card")
+			.onPut('api/apps/scrumboard/board/card')
 			.reply(({ request }) => {
 				// Get the card
 				const newCard = cloneDeep(request.body.card);
@@ -209,7 +209,7 @@ export class ScrumboardMockApi {
 		// @ Card - PATCH
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPatch("api/apps/scrumboard/board/card")
+			.onPatch('api/apps/scrumboard/board/card')
 			.reply(({ request }) => {
 				// Get the id and card
 				const id = request.body.id;
@@ -244,7 +244,7 @@ export class ScrumboardMockApi {
 		// @ Cards - PATCH
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPatch("api/apps/scrumboard/board/cards")
+			.onPatch('api/apps/scrumboard/board/cards')
 			.reply(({ request }) => {
 				// Get the cards
 				const cards = cloneDeep(request.body.cards);
@@ -279,10 +279,10 @@ export class ScrumboardMockApi {
 		// @ Card - DELETE
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onDelete("api/apps/scrumboard/board/card")
+			.onDelete('api/apps/scrumboard/board/card')
 			.reply(({ request }) => {
 				// Get the id
-				const id = request.params.get("id");
+				const id = request.params.get('id');
 
 				// Find the card and delete it
 				const index = this._cards.findIndex(item => item.id === id);
@@ -295,7 +295,7 @@ export class ScrumboardMockApi {
 		// @ Card Positions - PATCH
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPatch("api/apps/scrumboard/board/card/positions")
+			.onPatch('api/apps/scrumboard/board/card/positions')
 			.reply(({ request }) => {
 				// Get the cards
 				const cards = request.body.cards;
@@ -322,10 +322,10 @@ export class ScrumboardMockApi {
 		// @ Labels - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/scrumboard/board/labels")
+			.onGet('api/apps/scrumboard/board/labels')
 			.reply(({ request }) => {
 				// Get the board id
-				const boardId = request.params.get("boardId");
+				const boardId = request.params.get('boardId');
 
 				// Filter the labels
 				const labels = this._labels.filter(
@@ -339,7 +339,7 @@ export class ScrumboardMockApi {
 		// @ Label - PUT
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPut("api/apps/scrumboard/board/label")
+			.onPut('api/apps/scrumboard/board/label')
 			.reply(({ request }) => {
 				// Get the label
 				const newLabel = cloneDeep(request.body.label);
@@ -357,7 +357,7 @@ export class ScrumboardMockApi {
 		// @ Label - PATCH
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPatch("api/apps/scrumboard/board/label")
+			.onPatch('api/apps/scrumboard/board/label')
 			.reply(({ request }) => {
 				// Get the id and label
 				const id = request.body.id;
@@ -384,10 +384,10 @@ export class ScrumboardMockApi {
 		// @ Label - DELETE
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onDelete("api/apps/scrumboard/board/label")
+			.onDelete('api/apps/scrumboard/board/label')
 			.reply(({ request }) => {
 				// Get the id
-				const id = request.params.get("id");
+				const id = request.params.get('id');
 
 				// Find the label and delete it
 				const index = this._labels.findIndex(item => item.id === id);

@@ -1,23 +1,23 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation } from "@angular/core";
-import { FormBuilder, FormGroup, NgForm, Validators } from "@angular/forms";
-import { ActivatedRoute, Router } from "@angular/router";
-import { fuseAnimations } from "@fuse/animations";
-import { AuthService } from "app/services/auth/auth.service";
-import { UserService } from "app/services/user/user.service";
-import { FuseAlertType } from "@fuse/components/alert";
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { fuseAnimations } from '@fuse/animations';
+import { AuthService } from 'app/services/auth/auth.service';
+import { UserService } from 'app/services/user/user.service';
+import { FuseAlertType } from '@fuse/components/alert';
 
 @Component({
-	selector: "auth-unlock-session",
-	templateUrl: "./unlock-session.component.html",
+	selector: 'auth-unlock-session',
+	templateUrl: './unlock-session.component.html',
 	encapsulation: ViewEncapsulation.None,
 	animations: fuseAnimations,
 })
 export class AuthUnlockSessionComponent implements OnInit {
-	@ViewChild("unlockSessionNgForm") unlockSessionNgForm: NgForm;
+	@ViewChild('unlockSessionNgForm') unlockSessionNgForm: NgForm;
 
 	alert: { type: FuseAlertType; message: string } = {
-		type: "success",
-		message: "",
+		type: 'success',
+		message: '',
 	};
 	name: string;
 	showAlert: boolean = false;
@@ -57,7 +57,7 @@ export class AuthUnlockSessionComponent implements OnInit {
 					disabled: true,
 				},
 			],
-			password: ["", Validators.required],
+			password: ['', Validators.required],
 		});
 	}
 
@@ -82,8 +82,8 @@ export class AuthUnlockSessionComponent implements OnInit {
 
 		this._authService
 			.unlockSession({
-				email: this._email ?? "",
-				password: this.unlockSessionForm.get("password").value,
+				email: this._email ?? '',
+				password: this.unlockSessionForm.get('password').value,
 			})
 			.subscribe({
 				error: e => {
@@ -102,8 +102,8 @@ export class AuthUnlockSessionComponent implements OnInit {
 
 					// Set the alert
 					this.alert = {
-						type: "error",
-						message: "Invalid password",
+						type: 'error',
+						message: 'Invalid password',
 					};
 
 					// Show the alert
@@ -116,8 +116,8 @@ export class AuthUnlockSessionComponent implements OnInit {
 					// routing file and we don't have to touch here.
 					const redirectURL =
 						this._activatedRoute.snapshot.queryParamMap.get(
-							"redirectURL"
-						) || "/signed-in-redirect";
+							'redirectURL'
+						) || '/signed-in-redirect';
 
 					// Navigate to the redirect url
 					this._router.navigateByUrl(redirectURL);

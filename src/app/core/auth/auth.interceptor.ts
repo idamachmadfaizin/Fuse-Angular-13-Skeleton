@@ -1,14 +1,14 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import {
 	HttpErrorResponse,
 	HttpEvent,
 	HttpHandler,
 	HttpInterceptor,
 	HttpRequest,
-} from "@angular/common/http";
-import { catchError, Observable, throwError } from "rxjs";
-import { AuthService } from "app/services/auth/auth.service";
-import { AuthUtils } from "app/core/auth/auth.utils";
+} from '@angular/common/http';
+import { catchError, Observable, throwError } from 'rxjs';
+import { AuthService } from 'app/services/auth/auth.service';
+import { AuthUtils } from 'app/core/auth/auth.utils';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -44,8 +44,8 @@ export class AuthInterceptor implements HttpInterceptor {
 		) {
 			newReq = req.clone({
 				headers: req.headers.set(
-					"Authorization",
-					"Bearer " + this._authService.accessToken
+					'Authorization',
+					'Bearer ' + this._authService.accessToken
 				),
 			});
 		}

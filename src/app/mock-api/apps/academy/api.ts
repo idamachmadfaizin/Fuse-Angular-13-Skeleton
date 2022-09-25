@@ -1,14 +1,14 @@
-import { Injectable } from "@angular/core";
-import { cloneDeep } from "lodash-es";
-import { FuseMockApiService } from "@fuse/lib/mock-api/mock-api.service";
+import { Injectable } from '@angular/core';
+import { cloneDeep } from 'lodash-es';
+import { FuseMockApiService } from '@fuse/lib/mock-api/mock-api.service';
 import {
 	categories as categoriesData,
 	courses as coursesData,
 	demoCourseSteps as demoCourseStepsData,
-} from "app/mock-api/apps/academy/data";
+} from 'app/mock-api/apps/academy/data';
 
 @Injectable({
-	providedIn: "root",
+	providedIn: 'root',
 })
 export class AcademyMockApi {
 	private _categories: any[] = categoriesData;
@@ -35,7 +35,7 @@ export class AcademyMockApi {
 		// @ Categories - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/academy/categories")
+			.onGet('api/apps/academy/categories')
 			.reply(() => {
 				// Clone the categories
 				const categories = cloneDeep(this._categories);
@@ -49,7 +49,7 @@ export class AcademyMockApi {
 		// -----------------------------------------------------------------------------------------------------
 		// @ Courses - GET
 		// -----------------------------------------------------------------------------------------------------
-		this._fuseMockApiService.onGet("api/apps/academy/courses").reply(() => {
+		this._fuseMockApiService.onGet('api/apps/academy/courses').reply(() => {
 			// Clone the courses
 			const courses = cloneDeep(this._courses);
 
@@ -60,10 +60,10 @@ export class AcademyMockApi {
 		// @ Course - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/apps/academy/courses/course")
+			.onGet('api/apps/academy/courses/course')
 			.reply(({ request }) => {
 				// Get the id from the params
-				const id = request.params.get("id");
+				const id = request.params.get('id');
 
 				// Clone the courses and steps
 				const courses = cloneDeep(this._courses);

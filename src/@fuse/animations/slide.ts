@@ -4,35 +4,35 @@ import {
 	style,
 	transition,
 	trigger,
-} from "@angular/animations";
+} from '@angular/animations';
 import {
 	FuseAnimationCurves,
 	FuseAnimationDurations,
-} from "@fuse/animations/defaults";
+} from '@fuse/animations/defaults';
 
 // -----------------------------------------------------------------------------------------------------
 // @ Slide in top
 // -----------------------------------------------------------------------------------------------------
-const slideInTop = trigger("slideInTop", [
+const slideInTop = trigger('slideInTop', [
 	state(
-		"void",
+		'void',
 		style({
-			transform: "translate3d(0, -100%, 0)",
+			transform: 'translate3d(0, -100%, 0)',
 		})
 	),
 
 	state(
-		"*",
+		'*',
 		style({
-			transform: "translate3d(0, 0, 0)",
+			transform: 'translate3d(0, 0, 0)',
 		})
 	),
 
 	// Prevent the transition if the state is false
-	transition("void => false", []),
+	transition('void => false', []),
 
 	// Transition
-	transition("void => *", animate("{{timings}}"), {
+	transition('void => *', animate('{{timings}}'), {
 		params: {
 			timings: `${FuseAnimationDurations.entering} ${FuseAnimationCurves.deceleration}`,
 		},
@@ -42,26 +42,26 @@ const slideInTop = trigger("slideInTop", [
 // -----------------------------------------------------------------------------------------------------
 // @ Slide in bottom
 // -----------------------------------------------------------------------------------------------------
-const slideInBottom = trigger("slideInBottom", [
+const slideInBottom = trigger('slideInBottom', [
 	state(
-		"void",
+		'void',
 		style({
-			transform: "translate3d(0, 100%, 0)",
+			transform: 'translate3d(0, 100%, 0)',
 		})
 	),
 
 	state(
-		"*",
+		'*',
 		style({
-			transform: "translate3d(0, 0, 0)",
+			transform: 'translate3d(0, 0, 0)',
 		})
 	),
 
 	// Prevent the transition if the state is false
-	transition("void => false", []),
+	transition('void => false', []),
 
 	// Transition
-	transition("void => *", animate("{{timings}}"), {
+	transition('void => *', animate('{{timings}}'), {
 		params: {
 			timings: `${FuseAnimationDurations.entering} ${FuseAnimationCurves.deceleration}`,
 		},
@@ -71,26 +71,26 @@ const slideInBottom = trigger("slideInBottom", [
 // -----------------------------------------------------------------------------------------------------
 // @ Slide in left
 // -----------------------------------------------------------------------------------------------------
-const slideInLeft = trigger("slideInLeft", [
+const slideInLeft = trigger('slideInLeft', [
 	state(
-		"void",
+		'void',
 		style({
-			transform: "translate3d(-100%, 0, 0)",
+			transform: 'translate3d(-100%, 0, 0)',
 		})
 	),
 
 	state(
-		"*",
+		'*',
 		style({
-			transform: "translate3d(0, 0, 0)",
+			transform: 'translate3d(0, 0, 0)',
 		})
 	),
 
 	// Prevent the transition if the state is false
-	transition("void => false", []),
+	transition('void => false', []),
 
 	// Transition
-	transition("void => *", animate("{{timings}}"), {
+	transition('void => *', animate('{{timings}}'), {
 		params: {
 			timings: `${FuseAnimationDurations.entering} ${FuseAnimationCurves.deceleration}`,
 		},
@@ -100,26 +100,26 @@ const slideInLeft = trigger("slideInLeft", [
 // -----------------------------------------------------------------------------------------------------
 // @ Slide in right
 // -----------------------------------------------------------------------------------------------------
-const slideInRight = trigger("slideInRight", [
+const slideInRight = trigger('slideInRight', [
 	state(
-		"void",
+		'void',
 		style({
-			transform: "translate3d(100%, 0, 0)",
+			transform: 'translate3d(100%, 0, 0)',
 		})
 	),
 
 	state(
-		"*",
+		'*',
 		style({
-			transform: "translate3d(0, 0, 0)",
+			transform: 'translate3d(0, 0, 0)',
 		})
 	),
 
 	// Prevent the transition if the state is false
-	transition("void => false", []),
+	transition('void => false', []),
 
 	// Transition
-	transition("void => *", animate("{{timings}}"), {
+	transition('void => *', animate('{{timings}}'), {
 		params: {
 			timings: `${FuseAnimationDurations.entering} ${FuseAnimationCurves.deceleration}`,
 		},
@@ -129,26 +129,26 @@ const slideInRight = trigger("slideInRight", [
 // -----------------------------------------------------------------------------------------------------
 // @ Slide out top
 // -----------------------------------------------------------------------------------------------------
-const slideOutTop = trigger("slideOutTop", [
+const slideOutTop = trigger('slideOutTop', [
 	state(
-		"*",
+		'*',
 		style({
-			transform: "translate3d(0, 0, 0)",
+			transform: 'translate3d(0, 0, 0)',
 		})
 	),
 
 	state(
-		"void",
+		'void',
 		style({
-			transform: "translate3d(0, -100%, 0)",
+			transform: 'translate3d(0, -100%, 0)',
 		})
 	),
 
 	// Prevent the transition if the state is false
-	transition("false => void", []),
+	transition('false => void', []),
 
 	// Transition
-	transition("* => void", animate("{{timings}}"), {
+	transition('* => void', animate('{{timings}}'), {
 		params: {
 			timings: `${FuseAnimationDurations.exiting} ${FuseAnimationCurves.acceleration}`,
 		},
@@ -158,26 +158,26 @@ const slideOutTop = trigger("slideOutTop", [
 // -----------------------------------------------------------------------------------------------------
 // @ Slide out bottom
 // -----------------------------------------------------------------------------------------------------
-const slideOutBottom = trigger("slideOutBottom", [
+const slideOutBottom = trigger('slideOutBottom', [
 	state(
-		"*",
+		'*',
 		style({
-			transform: "translate3d(0, 0, 0)",
+			transform: 'translate3d(0, 0, 0)',
 		})
 	),
 
 	state(
-		"void",
+		'void',
 		style({
-			transform: "translate3d(0, 100%, 0)",
+			transform: 'translate3d(0, 100%, 0)',
 		})
 	),
 
 	// Prevent the transition if the state is false
-	transition("false => void", []),
+	transition('false => void', []),
 
 	// Transition
-	transition("* => void", animate("{{timings}}"), {
+	transition('* => void', animate('{{timings}}'), {
 		params: {
 			timings: `${FuseAnimationDurations.exiting} ${FuseAnimationCurves.acceleration}`,
 		},
@@ -187,26 +187,26 @@ const slideOutBottom = trigger("slideOutBottom", [
 // -----------------------------------------------------------------------------------------------------
 // @ Slide out left
 // -----------------------------------------------------------------------------------------------------
-const slideOutLeft = trigger("slideOutLeft", [
+const slideOutLeft = trigger('slideOutLeft', [
 	state(
-		"*",
+		'*',
 		style({
-			transform: "translate3d(0, 0, 0)",
+			transform: 'translate3d(0, 0, 0)',
 		})
 	),
 
 	state(
-		"void",
+		'void',
 		style({
-			transform: "translate3d(-100%, 0, 0)",
+			transform: 'translate3d(-100%, 0, 0)',
 		})
 	),
 
 	// Prevent the transition if the state is false
-	transition("false => void", []),
+	transition('false => void', []),
 
 	// Transition
-	transition("* => void", animate("{{timings}}"), {
+	transition('* => void', animate('{{timings}}'), {
 		params: {
 			timings: `${FuseAnimationDurations.exiting} ${FuseAnimationCurves.acceleration}`,
 		},
@@ -216,26 +216,26 @@ const slideOutLeft = trigger("slideOutLeft", [
 // -----------------------------------------------------------------------------------------------------
 // @ Slide out right
 // -----------------------------------------------------------------------------------------------------
-const slideOutRight = trigger("slideOutRight", [
+const slideOutRight = trigger('slideOutRight', [
 	state(
-		"*",
+		'*',
 		style({
-			transform: "translate3d(0, 0, 0)",
+			transform: 'translate3d(0, 0, 0)',
 		})
 	),
 
 	state(
-		"void",
+		'void',
 		style({
-			transform: "translate3d(100%, 0, 0)",
+			transform: 'translate3d(100%, 0, 0)',
 		})
 	),
 
 	// Prevent the transition if the state is false
-	transition("false => void", []),
+	transition('false => void', []),
 
 	// Transition
-	transition("* => void", animate("{{timings}}"), {
+	transition('* => void', animate('{{timings}}'), {
 		params: {
 			timings: `${FuseAnimationDurations.exiting} ${FuseAnimationCurves.acceleration}`,
 		},

@@ -1,20 +1,20 @@
-import { TestBed } from "@angular/core/testing";
+import { TestBed } from '@angular/core/testing';
 
 import {
 	HttpClientTestingModule,
 	HttpTestingController,
-} from "@angular/common/http/testing";
+} from '@angular/common/http/testing';
 import {
 	FormGroup,
 	ReactiveFormsModule,
 	FormsModule,
 	FormBuilder,
-} from "@angular/forms";
-import { SharedModule } from "app/shared/shared.module";
+} from '@angular/forms';
+import { SharedModule } from 'app/shared/shared.module';
 
-import { DashboardResolver } from "./dashboard.resolver";
+import { DashboardResolver } from './dashboard.resolver';
 
-describe("DashboardResolver", () => {
+describe('DashboardResolver', () => {
 	let resolver: DashboardResolver;
 
 	beforeEach(() => {
@@ -29,7 +29,7 @@ describe("DashboardResolver", () => {
 		resolver = TestBed.inject(DashboardResolver);
 	});
 
-	it("should be created", () => {
+	it('should be created', () => {
 		expect(resolver).toBeTruthy();
 	});
 });

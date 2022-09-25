@@ -1,4 +1,4 @@
-import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
+import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 export class FuseValidators {
 	/**
@@ -31,7 +31,7 @@ export class FuseValidators {
 			}
 
 			// Delete the mustMatch error to reset the error on the matching control
-			if (matchingControl.hasError("mustMatch")) {
+			if (matchingControl.hasError('mustMatch')) {
 				delete matchingControl.errors.mustMatch;
 				matchingControl.updateValueAndValidity();
 			}

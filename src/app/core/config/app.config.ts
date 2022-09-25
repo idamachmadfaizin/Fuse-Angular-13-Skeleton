@@ -1,9 +1,9 @@
-import { Layout } from "app/layout/layout.types";
+import { Layout } from 'app/layout/layout.types';
 
 // Types
-export type Scheme = "auto" | "dark" | "light";
+export type Scheme = 'auto' | 'dark' | 'light';
 export type Screens = { [key: string]: string };
-export type Theme = "theme-default" | string;
+export type Theme = 'theme-default' | string;
 export type Themes = { id: string; name: string }[];
 
 /**
@@ -32,43 +32,43 @@ export interface AppConfig {
  * "Themes" are required for Tailwind to generate themes.
  */
 export const appConfig: AppConfig = {
-	layout: "classy",
-	scheme: "auto",
+	layout: 'classy',
+	scheme: 'auto',
 	screens: {
-		sm: "600px",
-		md: "960px",
-		lg: "1280px",
-		xl: "1440px",
+		sm: '600px',
+		md: '960px',
+		lg: '1280px',
+		xl: '1440px',
 	},
-	theme: "theme-default",
+	theme: 'theme-default',
 	themes: [
 		{
-			id: "theme-default",
-			name: "Default",
+			id: 'theme-default',
+			name: 'Default',
 		},
 		{
-			id: "theme-brand",
-			name: "Brand",
+			id: 'theme-brand',
+			name: 'Brand',
 		},
 		{
-			id: "theme-teal",
-			name: "Teal",
+			id: 'theme-teal',
+			name: 'Teal',
 		},
 		{
-			id: "theme-rose",
-			name: "Rose",
+			id: 'theme-rose',
+			name: 'Rose',
 		},
 		{
-			id: "theme-purple",
-			name: "Purple",
+			id: 'theme-purple',
+			name: 'Purple',
 		},
 		{
-			id: "theme-amber",
-			name: "Amber",
+			id: 'theme-amber',
+			name: 'Amber',
 		},
 		{
-			id: "theme-fuchsia",
-			name: "Fuchsia",
+			id: 'theme-fuchsia',
+			name: 'Fuchsia',
 		},
 	],
 };

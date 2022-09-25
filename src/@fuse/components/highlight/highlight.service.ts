@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import hljs from "highlight.js";
+import { Injectable } from '@angular/core';
+import hljs from 'highlight.js';
 
 @Injectable({
-	providedIn: "root",
+	providedIn: 'root',
 })
 export class FuseHighlightService {
 	/**
@@ -41,14 +41,14 @@ export class FuseHighlightService {
 		let indentation = 0;
 
 		// Split the code into lines and store the lines
-		const lines = code.split("\n");
+		const lines = code.split('\n');
 
 		// Trim the empty lines around the code block
-		while (lines.length && lines[0].trim() === "") {
+		while (lines.length && lines[0].trim() === '') {
 			lines.shift();
 		}
 
-		while (lines.length && lines[lines.length - 1].trim() === "") {
+		while (lines.length && lines[lines.length - 1].trim() === '') {
 			lines.pop();
 		}
 
@@ -69,6 +69,6 @@ export class FuseHighlightService {
 
 		// Iterate through the lines one more time, remove the extra
 		// indentation, join them together and return it
-		return lines.map(line => line.substring(indentation)).join("\n");
+		return lines.map(line => line.substring(indentation)).join('\n');
 	}
 }

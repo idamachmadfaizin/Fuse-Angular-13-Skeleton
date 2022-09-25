@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import { FuseNavigationItem } from "@fuse/components/navigation/navigation.types";
+import { Injectable } from '@angular/core';
+import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
 
 @Injectable({
-	providedIn: "root",
+	providedIn: 'root',
 })
 export class FuseNavigationService {
 	private _componentRegistry: Map<string, any> = new Map<string, any>();
@@ -97,15 +97,15 @@ export class FuseNavigationService {
 		flatNavigation: FuseNavigationItem[] = []
 	): FuseNavigationItem[] {
 		for (const item of navigation) {
-			if (item.type === "basic") {
+			if (item.type === 'basic') {
 				flatNavigation.push(item);
 				continue;
 			}
 
 			if (
-				item.type === "aside" ||
-				item.type === "collapsable" ||
-				item.type === "group"
+				item.type === 'aside' ||
+				item.type === 'collapsable' ||
+				item.type === 'group'
 			) {
 				if (item.children) {
 					this.getFlatNavigation(item.children, flatNavigation);

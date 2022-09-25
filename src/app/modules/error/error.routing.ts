@@ -1,9 +1,9 @@
-import { Route } from "@angular/router";
-import { ErrorComponent } from "./error.component";
+import { Route } from '@angular/router';
+import { ErrorComponent } from './error.component';
 
 export const ErrorRoutes: Route[] = [
 	{
-		path: "",
+		path: '',
 		component: ErrorComponent,
 	},
 ];

@@ -12,8 +12,8 @@ export class Version {
 	 */
 	constructor(public version: string) {
 		this.full = version;
-		this.major = version.split(".")[0];
-		this.minor = version.split(".")[1];
-		this.patch = version.split(".").slice(2).join(".");
+		this.major = version.split('.')[0];
+		this.minor = version.split('.')[1];
+		this.patch = version.split('.').slice(2).join('.');
 	}
 }

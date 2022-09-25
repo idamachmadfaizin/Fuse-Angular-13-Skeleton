@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
-import { assign, cloneDeep } from "lodash-es";
-import { FuseMockApiService, FuseMockApiUtils } from "@fuse/lib/mock-api";
-import { messages as messagesData } from "app/mock-api/common/messages/data";
+import { Injectable } from '@angular/core';
+import { assign, cloneDeep } from 'lodash-es';
+import { FuseMockApiService, FuseMockApiUtils } from '@fuse/lib/mock-api';
+import { messages as messagesData } from 'app/mock-api/common/messages/data';
 
 @Injectable({
-	providedIn: "root",
+	providedIn: 'root',
 })
 export class MessagesMockApi {
 	private _messages: any = messagesData;
@@ -29,14 +29,14 @@ export class MessagesMockApi {
 		// @ Messages - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/common/messages")
+			.onGet('api/common/messages')
 			.reply(() => [200, cloneDeep(this._messages)]);
 
 		// -----------------------------------------------------------------------------------------------------
 		// @ Messages - POST
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPost("api/common/messages")
+			.onPost('api/common/messages')
 			.reply(({ request }) => {
 				// Get the message
 				const newMessage = cloneDeep(request.body.message);
@@ -55,7 +55,7 @@ export class MessagesMockApi {
 		// @ Messages - PATCH
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPatch("api/common/messages")
+			.onPatch('api/common/messages')
 			.reply(({ request }) => {
 				// Get the id and message
 				const id = request.body.id;
@@ -85,10 +85,10 @@ export class MessagesMockApi {
 		// @ Messages - DELETE
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onDelete("api/common/messages")
+			.onDelete('api/common/messages')
 			.reply(({ request }) => {
 				// Get the id
-				const id = request.params.get("id");
+				const id = request.params.get('id');
 
 				// Prepare the deleted message
 				let deletedMessage = null;
@@ -112,7 +112,7 @@ export class MessagesMockApi {
 		// @ Mark all as read - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/common/messages/mark-all-as-read")
+			.onGet('api/common/messages/mark-all-as-read')
 			.reply(() => {
 				// Go through all messages
 				this._messages.forEach(
@@ -131,7 +131,7 @@ export class MessagesMockApi {
 		// @ Toggle read status - POST
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onPost("api/common/messages/toggle-read-status")
+			.onPost('api/common/messages/toggle-read-status')
 			.reply(({ request }) => {
 				// Get the message
 				const message = cloneDeep(request.body.message);

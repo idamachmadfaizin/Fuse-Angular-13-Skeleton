@@ -1,10 +1,10 @@
-import { Directive, ElementRef, OnDestroy, OnInit } from "@angular/core";
-import { NavigationEnd, Router } from "@angular/router";
-import { filter, Subject, takeUntil } from "rxjs";
+import { Directive, ElementRef, OnDestroy, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter, Subject, takeUntil } from 'rxjs';
 
 @Directive({
-	selector: "[fuseScrollReset]",
-	exportAs: "fuseScrollReset",
+	selector: '[fuseScrollReset]',
+	exportAs: 'fuseScrollReset',
 })
 export class FuseScrollResetDirective implements OnInit, OnDestroy {
 	private _unsubscribeAll: Subject<any> = new Subject<any>();

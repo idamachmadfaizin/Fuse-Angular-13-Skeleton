@@ -4,30 +4,30 @@ import {
 	style,
 	transition,
 	trigger,
-} from "@angular/animations";
+} from '@angular/animations';
 import {
 	FuseAnimationCurves,
 	FuseAnimationDurations,
-} from "@fuse/animations/defaults";
+} from '@fuse/animations/defaults';
 
 // -----------------------------------------------------------------------------------------------------
 // @ Expand / collapse
 // -----------------------------------------------------------------------------------------------------
-const expandCollapse = trigger("expandCollapse", [
+const expandCollapse = trigger('expandCollapse', [
 	state(
-		"void, collapsed",
+		'void, collapsed',
 		style({
-			height: "0",
+			height: '0',
 		})
 	),
 
-	state("*, expanded", style("*")),
+	state('*, expanded', style('*')),
 
 	// Prevent the transition if the state is false
-	transition("void <=> false, collapsed <=> false, expanded <=> false", []),
+	transition('void <=> false, collapsed <=> false, expanded <=> false', []),
 
 	// Transition
-	transition("void <=> *, collapsed <=> expanded", animate("{{timings}}"), {
+	transition('void <=> *, collapsed <=> expanded', animate('{{timings}}'), {
 		params: {
 			timings: `${FuseAnimationDurations.entering} ${FuseAnimationCurves.deceleration}`,
 		},

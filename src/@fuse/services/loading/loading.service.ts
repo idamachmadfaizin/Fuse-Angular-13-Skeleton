@@ -1,16 +1,16 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { BehaviorSubject, Observable } from "rxjs";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
-	providedIn: "root",
+	providedIn: 'root',
 })
 export class FuseLoadingService {
 	private _auto$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
 		true
 	);
-	private _mode$: BehaviorSubject<"determinate" | "indeterminate"> =
-		new BehaviorSubject<"determinate" | "indeterminate">("indeterminate");
+	private _mode$: BehaviorSubject<'determinate' | 'indeterminate'> =
+		new BehaviorSubject<'determinate' | 'indeterminate'>('indeterminate');
 	private _progress$: BehaviorSubject<number | null> = new BehaviorSubject<
 		number | null
 	>(0);
@@ -38,7 +38,7 @@ export class FuseLoadingService {
 	/**
 	 * Getter for mode
 	 */
-	get mode$(): Observable<"determinate" | "indeterminate"> {
+	get mode$(): Observable<'determinate' | 'indeterminate'> {
 		return this._mode$.asObservable();
 	}
 
@@ -88,7 +88,7 @@ export class FuseLoadingService {
 	 *
 	 * @param value
 	 */
-	setMode(value: "determinate" | "indeterminate"): void {
+	setMode(value: 'determinate' | 'indeterminate'): void {
 		this._mode$.next(value);
 	}
 
@@ -99,7 +99,7 @@ export class FuseLoadingService {
 	 */
 	setProgress(value: number): void {
 		if (value < 0 || value > 100) {
-			console.error("Progress value must be between 0 and 100!");
+			console.error('Progress value must be between 0 and 100!');
 			return;
 		}
 
@@ -115,7 +115,7 @@ export class FuseLoadingService {
 	_setLoadingStatus(status: boolean, url: string): void {
 		// Return if the url was not provided
 		if (!url) {
-			console.error("The request URL must be provided!");
+			console.error('The request URL must be provided!');
 			return;
 		}
 

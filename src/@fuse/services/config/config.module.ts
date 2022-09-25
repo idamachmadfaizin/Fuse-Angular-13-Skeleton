@@ -1,6 +1,6 @@
-import { ModuleWithProviders, NgModule } from "@angular/core";
-import { FuseConfigService } from "@fuse/services/config/config.service";
-import { FUSE_APP_CONFIG } from "@fuse/services/config/config.constants";
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { FuseConfigService } from '@fuse/services/config/config.service';
+import { FUSE_APP_CONFIG } from '@fuse/services/config/config.constants';
 
 @NgModule()
 export class FuseConfigModule {

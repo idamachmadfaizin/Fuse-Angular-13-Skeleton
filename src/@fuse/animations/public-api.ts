@@ -1,4 +1,4 @@
-import { expandCollapse } from "@fuse/animations/expand-collapse";
+import { expandCollapse } from '@fuse/animations/expand-collapse';
 import {
 	fadeIn,
 	fadeInBottom,
@@ -10,8 +10,8 @@ import {
 	fadeOutLeft,
 	fadeOutRight,
 	fadeOutTop,
-} from "@fuse/animations/fade";
-import { shake } from "@fuse/animations/shake";
+} from '@fuse/animations/fade';
+import { shake } from '@fuse/animations/shake';
 import {
 	slideInBottom,
 	slideInLeft,
@@ -21,8 +21,8 @@ import {
 	slideOutLeft,
 	slideOutRight,
 	slideOutTop,
-} from "@fuse/animations/slide";
-import { zoomIn, zoomOut } from "@fuse/animations/zoom";
+} from '@fuse/animations/slide';
+import { zoomIn, zoomOut } from '@fuse/animations/zoom';
 
 export const fuseAnimations = [
 	expandCollapse,

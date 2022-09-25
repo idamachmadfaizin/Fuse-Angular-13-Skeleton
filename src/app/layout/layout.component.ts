@@ -5,26 +5,26 @@ import {
 	OnInit,
 	Renderer2,
 	ViewEncapsulation,
-} from "@angular/core";
-import { DOCUMENT } from "@angular/common";
-import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
-import { combineLatest, filter, map, Subject, takeUntil } from "rxjs";
-import { FuseConfigService } from "@fuse/services/config";
-import { FuseMediaWatcherService } from "@fuse/services/media-watcher";
-import { FUSE_VERSION } from "@fuse/version";
-import { Layout } from "app/layout/layout.types";
-import { AppConfig } from "app/core/config/app.config";
+} from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { combineLatest, filter, map, Subject, takeUntil } from 'rxjs';
+import { FuseConfigService } from '@fuse/services/config';
+import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
+import { FUSE_VERSION } from '@fuse/version';
+import { Layout } from 'app/layout/layout.types';
+import { AppConfig } from 'app/core/config/app.config';
 
 @Component({
-	selector: "layout",
-	templateUrl: "./layout.component.html",
-	styleUrls: ["./layout.component.scss"],
+	selector: 'layout',
+	templateUrl: './layout.component.html',
+	styleUrls: ['./layout.component.scss'],
 	encapsulation: ViewEncapsulation.None,
 })
 export class LayoutComponent implements OnInit, OnDestroy {
 	config: AppConfig;
 	layout: Layout;
-	scheme: "dark" | "light";
+	scheme: 'dark' | 'light';
 	theme: string;
 	private _unsubscribeAll: Subject<any> = new Subject<any>();
 
@@ -52,8 +52,8 @@ export class LayoutComponent implements OnInit, OnDestroy {
 		combineLatest([
 			this._fuseConfigService.config$,
 			this._fuseMediaWatcherService.onMediaQueryChange$([
-				"(prefers-color-scheme: dark)",
-				"(prefers-color-scheme: light)",
+				'(prefers-color-scheme: dark)',
+				'(prefers-color-scheme: light)',
 			]),
 		])
 			.pipe(
@@ -65,13 +65,13 @@ export class LayoutComponent implements OnInit, OnDestroy {
 					};
 
 					// If the scheme is set to 'auto'...
-					if (config.scheme === "auto") {
+					if (config.scheme === 'auto') {
 						// Decide the scheme using the media query
 						options.scheme = mql.breakpoints[
-							"(prefers-color-scheme: dark)"
+							'(prefers-color-scheme: dark)'
 						]
-							? "dark"
-							: "light";
+							? 'dark'
+							: 'light';
 					}
 
 					return options;
@@ -111,8 +111,8 @@ export class LayoutComponent implements OnInit, OnDestroy {
 
 		// Set the app version
 		this._renderer2.setAttribute(
-			this._document.querySelector("[ng-version]"),
-			"fuse-version",
+			this._document.querySelector('[ng-version]'),
+			'fuse-version',
 			FUSE_VERSION
 		);
 	}
@@ -146,7 +146,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
 		// 2. Get the query parameter from the current route and
 		// set the layout and save the layout to the config
 		const layoutFromQueryParam = route.snapshot.queryParamMap.get(
-			"layout"
+			'layout'
 		) as Layout;
 		if (layoutFromQueryParam) {
 			this.layout = layoutFromQueryParam;
@@ -192,7 +192,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
 	 */
 	private _updateScheme(): void {
 		// Remove class names for all schemes
-		this._document.body.classList.remove("light", "dark");
+		this._document.body.classList.remove('light', 'dark');
 
 		// Add class name for the currently selected scheme
 		this._document.body.classList.add(this.scheme);
@@ -206,10 +206,10 @@ export class LayoutComponent implements OnInit, OnDestroy {
 	private _updateTheme(): void {
 		// Find the class name for the previously selected theme and remove it
 		this._document.body.classList.forEach((className: string) => {
-			if (className.startsWith("theme-")) {
+			if (className.startsWith('theme-')) {
 				this._document.body.classList.remove(
 					className,
-					className.split("-")[1]
+					className.split('-')[1]
 				);
 			}
 		});

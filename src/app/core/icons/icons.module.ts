@@ -1,6 +1,6 @@
-import { NgModule } from "@angular/core";
-import { DomSanitizer } from "@angular/platform-browser";
-import { MatIconRegistry } from "@angular/material/icon";
+import { NgModule } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatIconRegistry } from '@angular/material/icon';
 
 @NgModule()
 export class IconsModule {
@@ -14,43 +14,43 @@ export class IconsModule {
 		// Register icon sets
 		this._matIconRegistry.addSvgIconSet(
 			this._domSanitizer.bypassSecurityTrustResourceUrl(
-				"assets/icons/material-twotone.svg"
+				'assets/icons/material-twotone.svg'
 			)
 		);
 		this._matIconRegistry.addSvgIconSetInNamespace(
-			"mat_outline",
+			'mat_outline',
 			this._domSanitizer.bypassSecurityTrustResourceUrl(
-				"assets/icons/material-outline.svg"
+				'assets/icons/material-outline.svg'
 			)
 		);
 		this._matIconRegistry.addSvgIconSetInNamespace(
-			"mat_solid",
+			'mat_solid',
 			this._domSanitizer.bypassSecurityTrustResourceUrl(
-				"assets/icons/material-solid.svg"
+				'assets/icons/material-solid.svg'
 			)
 		);
 		this._matIconRegistry.addSvgIconSetInNamespace(
-			"iconsmind",
+			'iconsmind',
 			this._domSanitizer.bypassSecurityTrustResourceUrl(
-				"assets/icons/iconsmind.svg"
+				'assets/icons/iconsmind.svg'
 			)
 		);
 		this._matIconRegistry.addSvgIconSetInNamespace(
-			"feather",
+			'feather',
 			this._domSanitizer.bypassSecurityTrustResourceUrl(
-				"assets/icons/feather.svg"
+				'assets/icons/feather.svg'
 			)
 		);
 		this._matIconRegistry.addSvgIconSetInNamespace(
-			"heroicons_outline",
+			'heroicons_outline',
 			this._domSanitizer.bypassSecurityTrustResourceUrl(
-				"assets/icons/heroicons-outline.svg"
+				'assets/icons/heroicons-outline.svg'
 			)
 		);
 		this._matIconRegistry.addSvgIconSetInNamespace(
-			"heroicons_solid",
+			'heroicons_solid',
 			this._domSanitizer.bypassSecurityTrustResourceUrl(
-				"assets/icons/heroicons-solid.svg"
+				'assets/icons/heroicons-solid.svg'
 			)
 		);
 	}

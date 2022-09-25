@@ -6,18 +6,18 @@ import {
 	Input,
 	OnDestroy,
 	OnInit,
-} from "@angular/core";
-import { NavigationEnd, Router } from "@angular/router";
-import { BooleanInput } from "@angular/cdk/coercion";
-import { filter, Subject, takeUntil } from "rxjs";
-import { fuseAnimations } from "@fuse/animations";
-import { FuseVerticalNavigationComponent } from "@fuse/components/navigation/vertical/vertical.component";
-import { FuseNavigationService } from "@fuse/components/navigation/navigation.service";
-import { FuseNavigationItem } from "@fuse/components/navigation/navigation.types";
+} from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { BooleanInput } from '@angular/cdk/coercion';
+import { filter, Subject, takeUntil } from 'rxjs';
+import { fuseAnimations } from '@fuse/animations';
+import { FuseVerticalNavigationComponent } from '@fuse/components/navigation/vertical/vertical.component';
+import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
+import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
 
 @Component({
-	selector: "fuse-vertical-navigation-collapsable-item",
-	templateUrl: "./collapsable.component.html",
+	selector: 'fuse-vertical-navigation-collapsable-item',
+	templateUrl: './collapsable.component.html',
 	animations: fuseAnimations,
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -53,10 +53,10 @@ export class FuseVerticalNavigationCollapsableItemComponent
 	/**
 	 * Host binding for component classes
 	 */
-	@HostBinding("class") get classList(): any {
+	@HostBinding('class') get classList(): any {
 		return {
-			"fuse-vertical-navigation-item-collapsed": this.isCollapsed,
-			"fuse-vertical-navigation-item-expanded": this.isExpanded,
+			'fuse-vertical-navigation-item-collapsed': this.isCollapsed,
+			'fuse-vertical-navigation-item-expanded': this.isExpanded,
 		};
 	}
 

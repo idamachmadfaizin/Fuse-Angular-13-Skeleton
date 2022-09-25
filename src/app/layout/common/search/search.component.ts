@@ -12,21 +12,21 @@ import {
 	SimpleChanges,
 	ViewChild,
 	ViewEncapsulation,
-} from "@angular/core";
-import { FormControl } from "@angular/forms";
-import { HttpClient } from "@angular/common/http";
-import { debounceTime, filter, map, Subject, takeUntil } from "rxjs";
-import { fuseAnimations } from "@fuse/animations/public-api";
+} from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { debounceTime, filter, map, Subject, takeUntil } from 'rxjs';
+import { fuseAnimations } from '@fuse/animations/public-api';
 
 @Component({
-	selector: "search",
-	templateUrl: "./search.component.html",
+	selector: 'search',
+	templateUrl: './search.component.html',
 	encapsulation: ViewEncapsulation.None,
-	exportAs: "fuseSearch",
+	exportAs: 'fuseSearch',
 	animations: fuseAnimations,
 })
 export class SearchComponent implements OnChanges, OnInit, OnDestroy {
-	@Input() appearance: "basic" | "bar" = "basic";
+	@Input() appearance: 'basic' | 'bar' = 'basic';
 	@Input() debounce: number = 300;
 	@Input() minLength: number = 2;
 	@Output() search: EventEmitter<any> = new EventEmitter<any>();
@@ -52,11 +52,11 @@ export class SearchComponent implements OnChanges, OnInit, OnDestroy {
 	/**
 	 * Host binding for component classes
 	 */
-	@HostBinding("class") get classList(): any {
+	@HostBinding('class') get classList(): any {
 		return {
-			"search-appearance-bar": this.appearance === "bar",
-			"search-appearance-basic": this.appearance === "basic",
-			"search-opened": this.opened,
+			'search-appearance-bar': this.appearance === 'bar',
+			'search-appearance-basic': this.appearance === 'basic',
+			'search-opened': this.opened,
 		};
 	}
 
@@ -65,7 +65,7 @@ export class SearchComponent implements OnChanges, OnInit, OnDestroy {
 	 *
 	 * @param value
 	 */
-	@ViewChild("barSearchInput")
+	@ViewChild('barSearchInput')
 	set barSearchInput(value: ElementRef) {
 		// If the value exists, it means that the search input
 		// is now in the DOM and we can focus on the input..
@@ -89,7 +89,7 @@ export class SearchComponent implements OnChanges, OnInit, OnDestroy {
 	 */
 	ngOnChanges(changes: SimpleChanges): void {
 		// Appearance
-		if ("appearance" in changes) {
+		if ('appearance' in changes) {
 			// To prevent any issues, close the
 			// search after changing the appearance
 			this.close();
@@ -122,7 +122,7 @@ export class SearchComponent implements OnChanges, OnInit, OnDestroy {
 			)
 			.subscribe(value => {
 				this._httpClient
-					.post("api/common/search", { query: value })
+					.post('api/common/search', { query: value })
 					.subscribe((resultSets: any) => {
 						// Store the result sets
 						this.resultSets = resultSets;
@@ -154,9 +154,9 @@ export class SearchComponent implements OnChanges, OnInit, OnDestroy {
 	onKeydown(event: KeyboardEvent): void {
 		// Listen for escape to close the search
 		// if the appearance is 'bar'
-		if (this.appearance === "bar") {
+		if (this.appearance === 'bar') {
 			// Escape
-			if (event.code === "Escape") {
+			if (event.code === 'Escape') {
 				// Close the search
 				this.close();
 			}
@@ -188,7 +188,7 @@ export class SearchComponent implements OnChanges, OnInit, OnDestroy {
 		}
 
 		// Clear the search input
-		this.searchControl.setValue("");
+		this.searchControl.setValue('');
 
 		// Close the search
 		this.opened = false;

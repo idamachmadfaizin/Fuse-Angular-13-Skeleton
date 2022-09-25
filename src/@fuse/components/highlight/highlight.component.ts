@@ -14,17 +14,17 @@ import {
 	ViewChild,
 	ViewContainerRef,
 	ViewEncapsulation,
-} from "@angular/core";
-import { DomSanitizer } from "@angular/platform-browser";
-import { FuseHighlightService } from "@fuse/components/highlight/highlight.service";
+} from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { FuseHighlightService } from '@fuse/components/highlight/highlight.service';
 
 @Component({
-	selector: "textarea[fuse-highlight]",
-	templateUrl: "./highlight.component.html",
-	styleUrls: ["./highlight.component.scss"],
+	selector: 'textarea[fuse-highlight]',
+	templateUrl: './highlight.component.html',
+	styleUrls: ['./highlight.component.scss'],
 	encapsulation: ViewEncapsulation.None,
 	changeDetection: ChangeDetectionStrategy.OnPush,
-	exportAs: "fuseHighlight",
+	exportAs: 'fuseHighlight',
 })
 export class FuseHighlightComponent implements OnChanges, AfterViewInit {
 	@Input() code: string;
@@ -57,7 +57,7 @@ export class FuseHighlightComponent implements OnChanges, AfterViewInit {
 	 */
 	ngOnChanges(changes: SimpleChanges): void {
 		// Code & Lang
-		if ("code" in changes || "lang" in changes) {
+		if ('code' in changes || 'lang' in changes) {
 			// Return if the viewContainerRef is not available
 			if (!this._viewContainerRef.length) {
 				return;

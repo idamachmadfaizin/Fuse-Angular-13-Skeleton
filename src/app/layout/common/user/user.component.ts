@@ -6,19 +6,19 @@ import {
 	OnDestroy,
 	OnInit,
 	ViewEncapsulation,
-} from "@angular/core";
-import { Router } from "@angular/router";
-import { BooleanInput } from "@angular/cdk/coercion";
-import { Subject, takeUntil } from "rxjs";
-import { User } from "app/interface/user/user.types";
-import { UserService } from "app/services/user/user.service";
+} from '@angular/core';
+import { Router } from '@angular/router';
+import { BooleanInput } from '@angular/cdk/coercion';
+import { Subject, takeUntil } from 'rxjs';
+import { User } from 'app/interface/user/user.types';
+import { UserService } from 'app/services/user/user.service';
 
 @Component({
-	selector: "user",
-	templateUrl: "./user.component.html",
+	selector: 'user',
+	templateUrl: './user.component.html',
 	encapsulation: ViewEncapsulation.None,
 	changeDetection: ChangeDetectionStrategy.OnPush,
-	exportAs: "user",
+	exportAs: 'user',
 })
 export class UserComponent implements OnInit, OnDestroy {
 	/* eslint-disable @typescript-eslint/naming-convention */
@@ -95,6 +95,6 @@ export class UserComponent implements OnInit, OnDestroy {
 	 * Sign out
 	 */
 	signOut(): void {
-		this._router.navigate(["/sign-out"]);
+		this._router.navigate(['/sign-out']);
 	}
 }

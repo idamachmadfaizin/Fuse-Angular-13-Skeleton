@@ -5,17 +5,17 @@ import {
 	Input,
 	OnDestroy,
 	OnInit,
-} from "@angular/core";
-import { IsActiveMatchOptions } from "@angular/router";
-import { Subject, takeUntil } from "rxjs";
-import { FuseHorizontalNavigationComponent } from "@fuse/components/navigation/horizontal/horizontal.component";
-import { FuseNavigationService } from "@fuse/components/navigation/navigation.service";
-import { FuseNavigationItem } from "@fuse/components/navigation/navigation.types";
-import { FuseUtilsService } from "@fuse/services/utils/utils.service";
+} from '@angular/core';
+import { IsActiveMatchOptions } from '@angular/router';
+import { Subject, takeUntil } from 'rxjs';
+import { FuseHorizontalNavigationComponent } from '@fuse/components/navigation/horizontal/horizontal.component';
+import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
+import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
+import { FuseUtilsService } from '@fuse/services/utils/utils.service';
 
 @Component({
-	selector: "fuse-horizontal-navigation-basic-item",
-	templateUrl: "./basic.component.html",
+	selector: 'fuse-horizontal-navigation-basic-item',
+	templateUrl: './basic.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FuseHorizontalNavigationBasicItemComponent

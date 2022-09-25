@@ -11,25 +11,25 @@ import {
 	Output,
 	SimpleChanges,
 	ViewEncapsulation,
-} from "@angular/core";
-import { filter, Subject, takeUntil } from "rxjs";
-import { BooleanInput, coerceBooleanProperty } from "@angular/cdk/coercion";
-import { fuseAnimations } from "@fuse/animations";
+} from '@angular/core';
+import { filter, Subject, takeUntil } from 'rxjs';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { fuseAnimations } from '@fuse/animations';
 import {
 	FuseAlertAppearance,
 	FuseAlertType,
-} from "@fuse/components/alert/alert.types";
-import { FuseAlertService } from "@fuse/components/alert/alert.service";
-import { FuseUtilsService } from "@fuse/services/utils/utils.service";
+} from '@fuse/components/alert/alert.types';
+import { FuseAlertService } from '@fuse/components/alert/alert.service';
+import { FuseUtilsService } from '@fuse/services/utils/utils.service';
 
 @Component({
-	selector: "fuse-alert",
-	templateUrl: "./alert.component.html",
-	styleUrls: ["./alert.component.scss"],
+	selector: 'fuse-alert',
+	templateUrl: './alert.component.html',
+	styleUrls: ['./alert.component.scss'],
 	encapsulation: ViewEncapsulation.None,
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	animations: fuseAnimations,
-	exportAs: "fuseAlert",
+	exportAs: 'fuseAlert',
 })
 export class FuseAlertComponent implements OnChanges, OnInit, OnDestroy {
 	/* eslint-disable @typescript-eslint/naming-convention */
@@ -38,12 +38,12 @@ export class FuseAlertComponent implements OnChanges, OnInit, OnDestroy {
 	static ngAcceptInputType_showIcon: BooleanInput;
 	/* eslint-enable @typescript-eslint/naming-convention */
 
-	@Input() appearance: FuseAlertAppearance = "soft";
+	@Input() appearance: FuseAlertAppearance = 'soft';
 	@Input() dismissed: boolean = false;
 	@Input() dismissible: boolean = false;
 	@Input() name: string = this._fuseUtilsService.randomId();
 	@Input() showIcon: boolean = true;
-	@Input() type: FuseAlertType = "primary";
+	@Input() type: FuseAlertType = 'primary';
 	@Output() readonly dismissedChanged: EventEmitter<boolean> =
 		new EventEmitter<boolean>();
 
@@ -65,23 +65,23 @@ export class FuseAlertComponent implements OnChanges, OnInit, OnDestroy {
 	/**
 	 * Host binding for component classes
 	 */
-	@HostBinding("class") get classList(): any {
+	@HostBinding('class') get classList(): any {
 		return {
-			"fuse-alert-appearance-border": this.appearance === "border",
-			"fuse-alert-appearance-fill": this.appearance === "fill",
-			"fuse-alert-appearance-outline": this.appearance === "outline",
-			"fuse-alert-appearance-soft": this.appearance === "soft",
-			"fuse-alert-dismissed": this.dismissed,
-			"fuse-alert-dismissible": this.dismissible,
-			"fuse-alert-show-icon": this.showIcon,
-			"fuse-alert-type-primary": this.type === "primary",
-			"fuse-alert-type-accent": this.type === "accent",
-			"fuse-alert-type-warn": this.type === "warn",
-			"fuse-alert-type-basic": this.type === "basic",
-			"fuse-alert-type-info": this.type === "info",
-			"fuse-alert-type-success": this.type === "success",
-			"fuse-alert-type-warning": this.type === "warning",
-			"fuse-alert-type-error": this.type === "error",
+			'fuse-alert-appearance-border': this.appearance === 'border',
+			'fuse-alert-appearance-fill': this.appearance === 'fill',
+			'fuse-alert-appearance-outline': this.appearance === 'outline',
+			'fuse-alert-appearance-soft': this.appearance === 'soft',
+			'fuse-alert-dismissed': this.dismissed,
+			'fuse-alert-dismissible': this.dismissible,
+			'fuse-alert-show-icon': this.showIcon,
+			'fuse-alert-type-primary': this.type === 'primary',
+			'fuse-alert-type-accent': this.type === 'accent',
+			'fuse-alert-type-warn': this.type === 'warn',
+			'fuse-alert-type-basic': this.type === 'basic',
+			'fuse-alert-type-info': this.type === 'info',
+			'fuse-alert-type-success': this.type === 'success',
+			'fuse-alert-type-warning': this.type === 'warning',
+			'fuse-alert-type-error': this.type === 'error',
 		};
 	}
 
@@ -96,7 +96,7 @@ export class FuseAlertComponent implements OnChanges, OnInit, OnDestroy {
 	 */
 	ngOnChanges(changes: SimpleChanges): void {
 		// Dismissed
-		if ("dismissed" in changes) {
+		if ('dismissed' in changes) {
 			// Coerce the value to a boolean
 			this.dismissed = coerceBooleanProperty(changes.dismissed.currentValue);
 
@@ -105,7 +105,7 @@ export class FuseAlertComponent implements OnChanges, OnInit, OnDestroy {
 		}
 
 		// Dismissible
-		if ("dismissible" in changes) {
+		if ('dismissible' in changes) {
 			// Coerce the value to a boolean
 			this.dismissible = coerceBooleanProperty(
 				changes.dismissible.currentValue
@@ -113,7 +113,7 @@ export class FuseAlertComponent implements OnChanges, OnInit, OnDestroy {
 		}
 
 		// Show icon
-		if ("showIcon" in changes) {
+		if ('showIcon' in changes) {
 			// Coerce the value to a boolean
 			this.showIcon = coerceBooleanProperty(changes.showIcon.currentValue);
 		}

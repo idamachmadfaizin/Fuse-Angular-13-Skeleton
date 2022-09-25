@@ -1,5 +1,5 @@
-import { NgModule } from "@angular/core";
-import { FuseScrollResetDirective } from "@fuse/directives/scroll-reset/scroll-reset.directive";
+import { NgModule } from '@angular/core';
+import { FuseScrollResetDirective } from '@fuse/directives/scroll-reset/scroll-reset.directive';
 
 @NgModule({
 	declarations: [FuseScrollResetDirective],

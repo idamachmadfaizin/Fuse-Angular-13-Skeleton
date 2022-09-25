@@ -1,17 +1,17 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import {
 	ActivatedRouteSnapshot,
 	Resolve,
 	RouterStateSnapshot,
-} from "@angular/router";
-import { forkJoin, Observable } from "rxjs";
-import { MessagesService } from "app/services/messages/messages.service";
-import { NavigationService } from "app/services/navigation/navigation.service";
-import { NotificationsService } from "app/services/notifications/notifications.service";
-import { UserService } from "app/services/user/user.service";
+} from '@angular/router';
+import { forkJoin, Observable } from 'rxjs';
+import { MessagesService } from 'app/services/messages/messages.service';
+import { NavigationService } from 'app/services/navigation/navigation.service';
+import { NotificationsService } from 'app/services/notifications/notifications.service';
+import { UserService } from 'app/services/user/user.service';
 
 @Injectable({
-	providedIn: "root",
+	providedIn: 'root',
 })
 export class InitialDataResolver implements Resolve<any> {
 	/**

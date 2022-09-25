@@ -1,5 +1,5 @@
-const chroma = require("chroma-js");
-const _ = require("lodash");
+const chroma = require('chroma-js');
+const _ = require('lodash');
 
 /**
  * Generates palettes from the provided configuration.
@@ -35,7 +35,7 @@ const generatePalette = config => {
 	if (_.isPlainObject(config)) {
 		if (!chroma.valid(config[500])) {
 			throw new Error(
-				"You must have a 500 hue in your palette configuration! Make sure the main color of your palette is marked as 500."
+				'You must have a 500 hue in your palette configuration! Make sure the main color of your palette is marked as 500.'
 			);
 		}
 
@@ -57,16 +57,16 @@ const generatePalette = config => {
 	// in between colors' hue values to slipping into the grays.
 	colors.unshift(
 		chroma
-			.scale(["white", palette[500]])
+			.scale(['white', palette[500]])
 			.domain([0, 1])
-			.mode("lrgb")
+			.mode('lrgb')
 			.colors(50)[1]
 	);
 	colors.push(
 		chroma
-			.scale(["black", palette[500]])
+			.scale(['black', palette[500]])
 			.domain([0, 1])
-			.mode("lrgb")
+			.mode('lrgb')
 			.colors(10)[1]
 	);
 
@@ -80,7 +80,7 @@ const generatePalette = config => {
 	];
 
 	// Generate the color scale
-	const scale = chroma.scale(colors).domain(domain).mode("lrgb");
+	const scale = chroma.scale(colors).domain(domain).mode('lrgb');
 
 	// Build and return the final palette
 	return {

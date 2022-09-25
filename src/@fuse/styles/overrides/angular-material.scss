@@ -34,7 +34,7 @@
 
 		&:not(.mat-expanded) {
 			.mat-expansion-panel-header {
-				&:not([aria-disabled="true"]) {
+				&:not([aria-disabled='true']) {
 					&.cdk-keyboard-focused,
 					&.cdk-program-focused,
 					&:hover {
@@ -47,7 +47,7 @@
 		.mat-expansion-panel-header {
 			font-size: 14px;
 
-			&[aria-disabled="true"] {
+			&[aria-disabled='true'] {
 				.mat-expansion-panel-header-description {
 					margin-right: 28px;
 				}
@@ -145,7 +145,7 @@
 .mat-stroked-button {
 	/* mat-progress-spinner inside buttons */
 	.mat-progress-spinner {
-		&.mat-progress-spinner-indeterminate-animation[mode="indeterminate"] {
+		&.mat-progress-spinner-indeterminate-animation[mode='indeterminate'] {
 			circle {
 				stroke: currentColor !important;
 				animation-duration: 6000ms;
@@ -352,7 +352,7 @@
 			/* Add a zero-width space character to trick the container */
 			/* into being the same height as a single line of the label */
 			&:after {
-				content: "\200b";
+				content: '\200b';
 			}
 		}
 

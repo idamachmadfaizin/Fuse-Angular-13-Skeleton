@@ -1,22 +1,22 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation } from "@angular/core";
-import { FormBuilder, FormGroup, NgForm, Validators } from "@angular/forms";
-import { finalize } from "rxjs";
-import { fuseAnimations } from "@fuse/animations";
-import { FuseAlertType } from "@fuse/components/alert";
-import { AuthService } from "app/services/auth/auth.service";
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { finalize } from 'rxjs';
+import { fuseAnimations } from '@fuse/animations';
+import { FuseAlertType } from '@fuse/components/alert';
+import { AuthService } from 'app/services/auth/auth.service';
 
 @Component({
-	selector: "auth-forgot-password",
-	templateUrl: "./forgot-password.component.html",
+	selector: 'auth-forgot-password',
+	templateUrl: './forgot-password.component.html',
 	encapsulation: ViewEncapsulation.None,
 	animations: fuseAnimations,
 })
 export class AuthForgotPasswordComponent implements OnInit {
-	@ViewChild("forgotPasswordNgForm") forgotPasswordNgForm: NgForm;
+	@ViewChild('forgotPasswordNgForm') forgotPasswordNgForm: NgForm;
 
 	alert: { type: FuseAlertType; message: string } = {
-		type: "success",
-		message: "",
+		type: 'success',
+		message: '',
 	};
 	forgotPasswordForm: FormGroup;
 	showAlert: boolean = false;
@@ -39,7 +39,7 @@ export class AuthForgotPasswordComponent implements OnInit {
 	ngOnInit(): void {
 		// Create the form
 		this.forgotPasswordForm = this._formBuilder.group({
-			email: ["", [Validators.required, Validators.email]],
+			email: ['', [Validators.required, Validators.email]],
 		});
 	}
 
@@ -64,7 +64,7 @@ export class AuthForgotPasswordComponent implements OnInit {
 
 		// Forgot password
 		this._authService
-			.forgotPassword(this.forgotPasswordForm.get("email").value)
+			.forgotPassword(this.forgotPasswordForm.get('email').value)
 			.pipe(
 				finalize(() => {
 					// Re-enable the form
@@ -83,15 +83,15 @@ export class AuthForgotPasswordComponent implements OnInit {
 
 					// Set the alert
 					this.alert = {
-						type: "error",
+						type: 'error',
 						message:
-							"Email not found! Are you sure you are already a member?",
+							'Email not found! Are you sure you are already a member?',
 					};
 				},
 				complete: () => {
 					// Set the alert
 					this.alert = {
-						type: "success",
+						type: 'success',
 						message:
 							"Password reset sent! You'll receive an email if you are registered on our system.",
 					};

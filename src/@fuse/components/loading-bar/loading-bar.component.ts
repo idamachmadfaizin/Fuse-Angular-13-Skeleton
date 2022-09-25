@@ -6,21 +6,21 @@ import {
 	OnInit,
 	SimpleChanges,
 	ViewEncapsulation,
-} from "@angular/core";
-import { coerceBooleanProperty } from "@angular/cdk/coercion";
-import { Subject, takeUntil } from "rxjs";
-import { FuseLoadingService } from "@fuse/services/loading";
+} from '@angular/core';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { Subject, takeUntil } from 'rxjs';
+import { FuseLoadingService } from '@fuse/services/loading';
 
 @Component({
-	selector: "fuse-loading-bar",
-	templateUrl: "./loading-bar.component.html",
-	styleUrls: ["./loading-bar.component.scss"],
+	selector: 'fuse-loading-bar',
+	templateUrl: './loading-bar.component.html',
+	styleUrls: ['./loading-bar.component.scss'],
 	encapsulation: ViewEncapsulation.None,
-	exportAs: "fuseLoadingBar",
+	exportAs: 'fuseLoadingBar',
 })
 export class FuseLoadingBarComponent implements OnChanges, OnInit, OnDestroy {
 	@Input() autoMode: boolean = true;
-	mode: "determinate" | "indeterminate";
+	mode: 'determinate' | 'indeterminate';
 	progress: number = 0;
 	show: boolean = false;
 	private _unsubscribeAll: Subject<any> = new Subject<any>();
@@ -41,7 +41,7 @@ export class FuseLoadingBarComponent implements OnChanges, OnInit, OnDestroy {
 	 */
 	ngOnChanges(changes: SimpleChanges): void {
 		// Auto mode
-		if ("autoMode" in changes) {
+		if ('autoMode' in changes) {
 			// Set the auto mode in the service
 			this._fuseLoadingService.setAutoMode(
 				coerceBooleanProperty(changes.autoMode.currentValue)

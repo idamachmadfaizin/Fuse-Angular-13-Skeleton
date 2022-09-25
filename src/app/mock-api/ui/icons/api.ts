@@ -1,15 +1,15 @@
-import { Injectable } from "@angular/core";
-import { cloneDeep } from "lodash-es";
-import { FuseMockApiService } from "@fuse/lib/mock-api";
+import { Injectable } from '@angular/core';
+import { cloneDeep } from 'lodash-es';
+import { FuseMockApiService } from '@fuse/lib/mock-api';
 import {
 	feather,
 	heroicons,
 	iconsmind,
 	material,
-} from "app/mock-api/ui/icons/data";
+} from 'app/mock-api/ui/icons/data';
 
 @Injectable({
-	providedIn: "root",
+	providedIn: 'root',
 })
 export class IconsMockApi {
 	private readonly _feather: any = feather;
@@ -36,12 +36,12 @@ export class IconsMockApi {
 		// -----------------------------------------------------------------------------------------------------
 		// @ Feather icons - GET
 		// -----------------------------------------------------------------------------------------------------
-		this._fuseMockApiService.onGet("api/ui/icons/feather").reply(() => [
+		this._fuseMockApiService.onGet('api/ui/icons/feather').reply(() => [
 			200,
 			{
-				namespace: "feather",
-				name: "Feather",
-				grid: "icon-size-6",
+				namespace: 'feather',
+				name: 'Feather',
+				grid: 'icon-size-6',
 				list: cloneDeep(this._feather),
 			},
 		]);
@@ -50,13 +50,13 @@ export class IconsMockApi {
 		// @ Heroicons outline icons - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/ui/icons/heroicons-outline")
+			.onGet('api/ui/icons/heroicons-outline')
 			.reply(() => [
 				200,
 				{
-					namespace: "heroicons_outline",
-					name: "Heroicons Outline",
-					grid: "icon-size-6",
+					namespace: 'heroicons_outline',
+					name: 'Heroicons Outline',
+					grid: 'icon-size-6',
 					list: cloneDeep(this._heroicons),
 				},
 			]);
@@ -65,13 +65,13 @@ export class IconsMockApi {
 		// @ Heroicons solid icons - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/ui/icons/heroicons-solid")
+			.onGet('api/ui/icons/heroicons-solid')
 			.reply(() => [
 				200,
 				{
-					namespace: "heroicons_solid",
-					name: "Heroicons Solid",
-					grid: "icon-size-5",
+					namespace: 'heroicons_solid',
+					name: 'Heroicons Solid',
+					grid: 'icon-size-5',
 					list: cloneDeep(this._heroicons),
 				},
 			]);
@@ -79,12 +79,12 @@ export class IconsMockApi {
 		// -----------------------------------------------------------------------------------------------------
 		// @ Iconsmind icons - GET
 		// -----------------------------------------------------------------------------------------------------
-		this._fuseMockApiService.onGet("api/ui/icons/iconsmind").reply(() => [
+		this._fuseMockApiService.onGet('api/ui/icons/iconsmind').reply(() => [
 			200,
 			{
-				namespace: "iconsmind",
-				name: "Iconsmind",
-				grid: "icon-size-10",
+				namespace: 'iconsmind',
+				name: 'Iconsmind',
+				grid: 'icon-size-10',
 				list: cloneDeep(this._iconsmind),
 			},
 		]);
@@ -93,13 +93,13 @@ export class IconsMockApi {
 		// @ Material solid icons - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/ui/icons/material-solid")
+			.onGet('api/ui/icons/material-solid')
 			.reply(() => [
 				200,
 				{
-					namespace: "mat_solid",
-					name: "Material Solid",
-					grid: "icon-size-6",
+					namespace: 'mat_solid',
+					name: 'Material Solid',
+					grid: 'icon-size-6',
 					list: cloneDeep(this._material),
 				},
 			]);
@@ -108,13 +108,13 @@ export class IconsMockApi {
 		// @ Material outline icons - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/ui/icons/material-outline")
+			.onGet('api/ui/icons/material-outline')
 			.reply(() => [
 				200,
 				{
-					namespace: "mat_outline",
-					name: "Material Outline",
-					grid: "icon-size-6",
+					namespace: 'mat_outline',
+					name: 'Material Outline',
+					grid: 'icon-size-6',
 					list: cloneDeep(this._material),
 				},
 			]);
@@ -123,13 +123,13 @@ export class IconsMockApi {
 		// @ Material twotone icons - GET
 		// -----------------------------------------------------------------------------------------------------
 		this._fuseMockApiService
-			.onGet("api/ui/icons/material-twotone")
+			.onGet('api/ui/icons/material-twotone')
 			.reply(() => [
 				200,
 				{
-					namespace: "",
-					name: "Material Twotone",
-					grid: "icon-size-6",
+					namespace: '',
+					name: 'Material Twotone',
+					grid: 'icon-size-6',
 					list: cloneDeep(this._material),
 				},
 			]);

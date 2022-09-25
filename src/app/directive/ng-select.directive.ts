@@ -1,4 +1,4 @@
-import { MatFormFieldControl } from "@angular/material/form-field";
+import { MatFormFieldControl } from '@angular/material/form-field';
 import {
 	Directive,
 	HostBinding,
@@ -7,18 +7,18 @@ import {
 	Self,
 	OnDestroy,
 	DoCheck,
-} from "@angular/core";
-import { Subject } from "rxjs";
+} from '@angular/core';
+import { Subject } from 'rxjs';
 import {
 	NgControl,
 	FormControl,
 	FormGroupDirective,
 	NgForm,
-} from "@angular/forms";
-import { NgSelectComponent } from "@ng-select/ng-select";
-import { coerceBooleanProperty } from "@angular/cdk/coercion";
-import { untilDestroyed } from "ngx-take-until-destroy";
-import { ErrorStateMatcher } from "@angular/material/core";
+} from '@angular/forms';
+import { NgSelectComponent } from '@ng-select/ng-select';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { untilDestroyed } from 'ngx-take-until-destroy';
+import { ErrorStateMatcher } from '@angular/material/core';
 
 export class NgSelectErrorStateMatcher {
 	constructor(private ngSelect: NgSelectFormFieldControlDirective) {}
@@ -40,7 +40,7 @@ export class NgSelectErrorStateMatcher {
 
 @Directive({
 	// tslint:disable-next-line:directive-selector
-	selector: "[ngSelectMat]",
+	selector: '[ngSelectMat]',
 	providers: [
 		{
 			provide: MatFormFieldControl,
@@ -55,7 +55,7 @@ export class NgSelectFormFieldControlDirective
 	@HostBinding()
 	@Input()
 	id = `ng-select-${NgSelectFormFieldControlDirective.nextId++}`;
-	@HostBinding("attr.aria-describedby") describedBy = "";
+	@HostBinding('attr.aria-describedby') describedBy = '';
 
 	get empty(): boolean {
 		return this._value === undefined || this._value === null;
@@ -141,7 +141,7 @@ export class NgSelectFormFieldControlDirective
 			this.ngControl.statusChanges
 				.pipe(untilDestroyed(this))
 				.subscribe(s => {
-					const disabled = s === "DISABLED";
+					const disabled = s === 'DISABLED';
 					if (disabled !== this._disabled) {
 						this.disabled = disabled;
 					}
@@ -188,12 +188,12 @@ export class NgSelectFormFieldControlDirective
 	}
 
 	setDescribedByIds(ids: string[]): void {
-		this.describedBy = ids.join(" ");
+		this.describedBy = ids.join(' ');
 	}
 
 	onContainerClick(event: MouseEvent): void {
 		const target = event.target as HTMLElement;
-		if (target.classList.contains("mat-form-field-infix")) {
+		if (target.classList.contains('mat-form-field-infix')) {
 			this.host.focus();
 			this.host.open();
 		}
