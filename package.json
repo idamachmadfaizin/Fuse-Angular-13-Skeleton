@@ -34,7 +34,7 @@
         "@angular/language-server": "13.3.4",
         "@angular/service-worker": "13.3.11",
         "@ngneat/transloco": "4.1.1",
-        "apexcharts": "3.35.5",
+        "apexcharts": "3.36.0",
         "crypto-js": "4.1.1",
         "highlight.js": "11.6.0",
         "lodash-es": "4.17.21",
