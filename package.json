@@ -150,7 +150,7 @@
 		"chroma-js": "2.4.2",
 		"eslint": "8.41.0",
 		"eslint-plugin-import": "2.27.5",
-		"eslint-plugin-jsdoc": "44.2.7",
+		"eslint-plugin-jsdoc": "45.0.0",
 		"eslint-plugin-prefer-arrow": "1.2.3",
 		"jasmine-core": "4.6.0",
 		"karma": "6.4.2",
